@@ -4,8 +4,8 @@ with open(r'C:\Users\aleci\Python\KEYS\contentful.txt', 'r') as file:
     KEY = file.readline()
 
 CLIENT = contentful_management.Client(KEY)
-SPACE = client.spaces().all()[2].id
-ENVIRONMENT = client.environments(space).find('master')
+SPACE = CLIENT.spaces().all()[2].id
+ENVIRONMENT = CLIENT.environments(SPACE).find('master')
 
 types = ENVIRONMENT.content_types().all()
 
