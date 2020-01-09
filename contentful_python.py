@@ -42,7 +42,7 @@ tools = ['tool',
 metadata = ['topic']
 
 #%%
-def add_field(env, content_type, field, appearance, replace = 0):
+def add_field(env, content_type, field, appearance):
     """Add a new field to a given content type.
     Pass the field as a dictionary including at least id and name.
     Appearance should be a separate dict for the 'controls'
@@ -60,8 +60,7 @@ def add_field(env, content_type, field, appearance, replace = 0):
     return 0
 
 def get_existing(env, content_type, field_id):
-    """ Gets details of an existing field so I can set up an add field
-    Test this against a list comprehension version"""
+    """ Gets details of an existing field so I can set up an add field"""
     t = env.content_types().find(content_type)
     id_converted = re.sub(r'(?=[A-Z])', '_', field_id).lower()
     for f in t.fields:
@@ -75,9 +74,20 @@ def get_existing(env, content_type, field_id):
             break
     return {'Field': result.to_json(), 'Appearance': appearance}
 
+def copy_field(env, field_id, original_type, target_types):
+    """Get existing field from original_type and copy it to list of target types"""
+    start = get_existing(env, original_type, field_id)
+    for t in target_types:
+        add_field(env, t, start['Field'], start['Appearance'])
+        print(f'Done for {t}')
+    return 0
+
 #%%
-current = get_existing(ENVIRONMENT, 'adviceCollection', 'startTaskList')
+current = get_existing(ENVIRONMENT, 'adviceCollection', 'versionInformation')
 print(current)
+
+#%%
+copy_field(ENVIRONMENT, 'versionInformation', 'adviceCollection', ['adviceList'])
 
 #%%
 # Version info
@@ -111,3 +121,17 @@ settings = {'trueLabel': 'Yes',
 add_field(ENVIRONMENT, 'adviceCollection', task_list, settings)
 add_field(ENVIRONMENT, 'adviceCollectionAdviser', task_list, settings)
 add_field(ENVIRONMENT, 'adviceList', task_list, settings)
+
+#%%
+# Timer
+import time
+
+def timer(reps, func, *args):
+    start = time.perf_counter()
+    for rep in range(reps):
+        result = func(*args)
+    finish = time.perf_counter()
+    return round((finish - start) / reps, 2)
+
+print('seconds per call for loop:', 
+      timer(10, get_existing, ENVIRONMENT, 'adviceCollection', 'startTaskList'))
