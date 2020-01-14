@@ -1,14 +1,16 @@
 import contentful_management
 import re
 
-with open(r'C:\Users\aleci\Python\KEYS\contentful.txt', 'r') as file:
-    KEY = file.readline()
+from pathlib import Path
 
-CLIENT = contentful_management.Client(KEY)
-SPACE = CLIENT.spaces().all()[2].id
-ENVIRONMENT = CLIENT.environments(SPACE).find('master')
+key_dir = Path(__file__).resolve().parent.parent.joinpath('KEYS')
+KEY = key_dir.joinpath('contentful.txt').read_text()
 
-types = ENVIRONMENT.content_types().all()
+client = contentful_management.Client(KEY)
+space = client.spaces().all()[2].id
+ENV = client.environments(space).find('master')
+
+types = ENV.content_types().all()
 
 print([t.id for t in types])
 
@@ -83,11 +85,11 @@ def copy_field(env, field_id, original_type, target_types):
     return 0
 
 #%%
-current = get_existing(ENVIRONMENT, 'adviceCollection', 'versionInformation')
+current = get_existing(ENV, 'adviceCollection', 'versionInformation')
 print(current)
 
 #%%
-copy_field(ENVIRONMENT, 'versionInformation', 'adviceCollection', ['adviceList'])
+copy_field(ENV, 'versionInformation', 'adviceCollection', ['adviceList'])
 
 #%%
 # Version info
@@ -104,8 +106,8 @@ appearance = {'fieldId': 'versionInformation',
             'widgetId': 'markdown', 
             'widgetNamespace': 'builtin'}
 
-add_field(ENVIRONMENT, 'adviceCollectionAdviser', version_info, appearance)
-add_field(ENVIRONMENT, 'adviceList', version_info, appearance)
+add_field(ENV, 'adviceCollectionAdviser', version_info, appearance)
+add_field(ENV, 'adviceList', version_info, appearance)
 
 
 #%%
@@ -118,9 +120,9 @@ task_list = {'id': 'startTaskList',
              }
 settings = {'trueLabel': 'Yes',
             'falseLabel': 'No'}
-add_field(ENVIRONMENT, 'adviceCollection', task_list, settings)
-add_field(ENVIRONMENT, 'adviceCollectionAdviser', task_list, settings)
-add_field(ENVIRONMENT, 'adviceList', task_list, settings)
+add_field(ENV, 'adviceCollection', task_list, settings)
+add_field(ENV, 'adviceCollectionAdviser', task_list, settings)
+add_field(ENV, 'adviceList', task_list, settings)
 
 #%%
 # Timer
@@ -134,4 +136,4 @@ def timer(reps, func, *args):
     return round((finish - start) / reps, 2)
 
 print('seconds per call for loop:', 
-      timer(10, get_existing, ENVIRONMENT, 'adviceCollection', 'startTaskList'))
+      timer(10, get_existing, ENV, 'adviceCollection', 'startTaskList'))
