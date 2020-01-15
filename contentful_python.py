@@ -6,15 +6,16 @@ from pathlib import Path
 key_dir = Path(__file__).resolve().parent.parent.joinpath('KEYS')
 KEY = key_dir.joinpath('contentful.txt').read_text()
 
+# set up Contentful environment and get list of content types as starting point
 client = contentful_management.Client(KEY)
 space = client.spaces().all()[2].id
 ENV = client.environments(space).find('master')
 
-types = ENV.content_types().all()
-
-print([t.id for t in types])
+all_types = ENV.content_types().all()
+types = [t.id for t in all_types]
 
 #%%
+# Sublists of categorised content types
 pages = ['adviceCollection', 
          'adviceCollectionAdviser', 
          'adviceList']
@@ -30,7 +31,7 @@ dynamic = ['banner',
            'table',
            'adviserWarning',
            'amount',
-           'footer',
+           'backgroundText',
            'callCosts',
            'contactDetails',
            'contentPattern',
@@ -41,7 +42,16 @@ tools = ['tool',
          'question',
          'answer']
 
-metadata = ['topic']
+metadata = ['topic', 'tag']
+
+# Check that everything is covered in the categories
+# Go no further unless leftovers and legacy are blank 
+sublists = [pages, units, dynamic, tools, metadata]
+everything = [item for sublist in sublists for item in sublist]
+leftovers = [t for t in types if t not in everything]
+legacy = [e for e in everything if e not in types]
+print('leftovers:', leftovers, end = '\n')
+print('legacy:', legacy)
 
 #%%
 def add_field(env, content_type, field, appearance):
@@ -84,9 +94,47 @@ def copy_field(env, field_id, original_type, target_types):
         print(f'Done for {t}')
     return 0
 
+def change_field(env, content_type, field_id, key_to_change, new_key):
+    """Doesn't currently work on appearance fields or ids
+    """
+    t = env.content_types().find(content_type)
+    id_converted = re.sub(r'(?=[A-Z])', '_', field_id).lower()
+    pos = 0
+    for f in t.fields: 
+        if f.id == id_converted:
+            if key_to_change == 'id':
+                new = f.to_json()
+                new['id'] = new_key
+                f.omitted = True
+                t = t.update()
+                # or do i need to find and then .publish() the content type to 'activate' it?
+                t.fields.remove(f)
+                #t.fields.insert(pos, contentful_management.ContentTypeField(new))
+                return 0
+                #content_type.fields = [ f for f in fields if not f.id == 'author' ]
+
+            else:
+                setattr(f, key_to_change, new_key)
+                t.save()
+                return 0
+        pos += 1    
+    return 1
+
 #%%
 current = get_existing(ENV, 'adviceCollection', 'versionInformation')
 print(current)
+
+temp = {'Field': {'name': 'Url',
+  'id': 'url',
+  'type': 'Symbol',
+  'localized': False,
+  'omitted': False,
+  'required': True,
+  'disabled': False,
+  'validations': []},
+ 'Appearance': {'fieldId': 'url',
+  'widgetId': 'slugEditor',
+  'widgetNamespace': 'builtin'}}
 
 #%%
 copy_field(ENV, 'versionInformation', 'adviceCollection', ['adviceList'])
