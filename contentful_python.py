@@ -54,6 +54,10 @@ print('leftovers:', leftovers, end = '\n')
 print('legacy:', legacy)
 
 #%%
+
+def get_type(env, content_type):
+    return env.content_types().find(content_type)
+
 def add_field(env, content_type, field, appearance):
     """Add a new field to a given content type.
     Pass the field as a dictionary including at least id and name.
@@ -94,6 +98,24 @@ def copy_field(env, field_id, original_type, target_types):
         print(f'Done for {t}')
     return 0
 
+def delete_field(env, content_type, field_id):
+    """This is a hassle as you have to 'omit' the field first"""
+    id_converted = re.sub(r'(?=[A-Z])', '_', field_id).lower()
+    t = get_type(env, content_type)
+    f = [field for field in t.fields if field.raw['id'] == field_id][0]
+    f.omitted = True
+    print(f.raw)
+    print()
+    print(t.fields)
+    
+    t.save()
+    #f = [field for field in t.fields.raw if field['id'] == id_converted][0]
+    #print(t.fields)
+    #t.fields.remove(f)
+    #print(t.fields)
+    #t.save()
+    return 0
+    
 def change_field(env, content_type, field_id, key_to_change, new_key):
     """Doesn't currently work on appearance fields or ids
     """
@@ -103,12 +125,13 @@ def change_field(env, content_type, field_id, key_to_change, new_key):
     for f in t.fields: 
         if f.id == id_converted:
             if key_to_change == 'id':
-                new = f.to_json()
-                new['id'] = new_key
-                f.omitted = True
-                t = t.update()
+                setattr()
+                #new = f.to_json()
+                #new['id'] = new_key
+                #f.omitted = True
+                #t = t.update()
                 # or do i need to find and then .publish() the content type to 'activate' it?
-                t.fields.remove(f)
+                #t.fields.remove(f)
                 #t.fields.insert(pos, contentful_management.ContentTypeField(new))
                 return 0
                 #content_type.fields = [ f for f in fields if not f.id == 'author' ]
