@@ -1,4 +1,3 @@
-require 'faraday'
 require 'contentful/management'
 require_relative 'contentful_functions'
 
@@ -36,7 +35,7 @@ tools = ['tool',
     'question',
     'answer']
 
-metadata = ['topic', 'tag']
+metadata = ['topic', 'testType']
 
 sublists = [pages, units, dynamic, tools, metadata]
 everything = sublists.flatten.sort
@@ -52,16 +51,11 @@ legacy = everything.select do |e|
 end
 
 # Collection of types and fields to use
-test_field = {
-    name: 'Test field',
-    id: 'testField',
-    type: 'Text',
-    localized: false,
-    omitted: false,
-    required: false,
-    disabled: false,
-    validations: []
-}
+test_field = Contentful::Management::Field.new
+test_field.id = 'testField'
+test_field.name = 'Test field'
+test_field.type = 'Text'
+
 test_appearance = {
     fieldId: 'testField',
     settings: {
@@ -81,6 +75,9 @@ else
 end
 
 if continue
-    puts 'ready'
-    # run relevant functions here from argv
+    #type = get_type(env, 'testType')
+    #type.fields.create(id: 'newField', name: 'New field', type: 'Text')
+    #type.fields.add(test_field)
+    add_field(env, 'testType', test_field)
+    puts 'Done'
 end
