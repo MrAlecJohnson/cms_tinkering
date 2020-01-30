@@ -1,4 +1,3 @@
-require 'faraday'
 require 'contentful'
 
 TOKEN = IO.read("/Users/alec/Python/KEYS/contentful_deliver.txt")
