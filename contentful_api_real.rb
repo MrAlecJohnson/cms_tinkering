@@ -17,7 +17,7 @@ old_types = old_env.content_types.all.map { |t| t.id }
 # content types, categorised - add them here as they're created
 pages = []
 units = []
-dynamic = []
+dynamic = ['banner']
 tools = []
 metadata = []
 everything = [pages, units, dynamic, tools, metadata].flatten.sort
@@ -46,6 +46,8 @@ if continue
     # use functions from contentful_functions
     # keep the objects themselves in contentful_types_fields
     # I should really set up classes for these but my Ruby is blah
-    add_type(env, @banner)
-    #puts content_type(env, 'banner')
+    
+    #add_type(env, @banner)
+    content_type(old_env, 'banner')
+    puts 'done'
 end

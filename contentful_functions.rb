@@ -27,7 +27,7 @@ def add_type(env, new_type)
 
     #done = content_type(env, type_id)
     #done.save
-    puts "Content type #{new_type[:data][:name]} created."
+    puts "Content type '#{new_type[:data][:name]}' created."
 
 end
 
