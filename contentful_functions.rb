@@ -26,7 +26,16 @@ def field_appearance(content_type, field)
     return type_appearance.select {|control| control['fieldId'] == field}[0]
 end
 
-def add_field(env, existing_type, new_field)
+def new_field(id, attribute_hash)
+    field = Contentful::Management::Field.new
+    field.id = id
+    attribute_hash.each do |k, v|
+        field.k = v
+    end
+    return field
+end
+
+def add_field_to_type(env, existing_type, new_field)
     t = content_type(env, existing_type)
     t.fields.add(new_field)
 end

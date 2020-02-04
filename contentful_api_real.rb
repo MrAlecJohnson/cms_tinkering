@@ -48,7 +48,7 @@ if continue
     # keep the objects themselves in contentful_types_fields
     # I should really set up classes for these but my Ruby is blah
     
-    #add_type(env, @banner)
+    add_type(env, @banner)
     
     #SAVE ALL CONTENT TYPES TO JSON
     #old_types.each do |content|
