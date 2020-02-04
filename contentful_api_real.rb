@@ -1,6 +1,7 @@
 require 'contentful/management'
 require_relative 'contentful_functions'
-require_relative 'contentful_types_fields'
+require_relative 'contentful_types'
+require_relative 'contentful_fields'
 
 KEY = IO.read("/Users/alec/Python/KEYS/contentful_manage.txt").strip() # management API key
 client = Contentful::Management::Client.new(KEY)
@@ -17,7 +18,7 @@ old_types = old_env.content_types.all.map { |t| t.id }
 # content types, categorised - add them here as they're created
 pages = []
 units = []
-dynamic = ['banner']
+dynamic = []
 tools = []
 metadata = []
 everything = [pages, units, dynamic, tools, metadata].flatten.sort
@@ -48,6 +49,9 @@ if continue
     # I should really set up classes for these but my Ruby is blah
     
     #add_type(env, @banner)
-    content_type(old_env, 'banner')
-    puts 'done'
+    
+    #SAVE ALL CONTENT TYPES TO JSON
+    #old_types.each do |content|
+    #    export_type(old_env, content)
+    #end
 end

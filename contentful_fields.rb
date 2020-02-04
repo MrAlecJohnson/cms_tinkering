@@ -11,104 +11,45 @@ require 'contentful/management'
 @title.required = true
 @title.localized = false
 @title.validations = {
-    "size": { "min": 5, "max": 100}
+    "size": { "min": 5, "max": 200}
 }
 
-@title_appearance_banner = {
+@title_appearance_visible = {
     fieldId: @title.id,
     settings: {
-      helpText: "This title is just for finding the banner in the CMS - " \
-                "it doesn't show up when you add the banner to a page"
+      helpText: "The title of this piece of content." \
+                "Visible when you publish to a website."
             },
     widgetId: "singleLine"
 }
 
+@title_appearance_invisible = {
+    fieldId: @title.id,
+    settings: {
+        helpText: "This title is just for finding content in the CMS - " \
+                "it doesn't show up when you publish this content on a website"
+            },
+    widgetId: "singleLine"    
+}
+
 # RICH TEXT
-# Just text and links - eg banner body field
-@body_limited = Contentful::Management::Field.new
-@body_limited.id = 'body_limited'
-@body_limited.name = 'Body'
-@body_limited.type = 'RichText'
-@body_limited.required = false
-@body_limited.localized = false
-@body_limited.validations = {
+# Simple text - just text and links - eg banner body field
+@body_simple = Contentful::Management::Field.new
+@body_simple.id = 'body_limited'
+@body_simple.name = 'Body'
+@body_simple.type = 'RichText'
+@body_simple.required = false
+@body_simple.localized = false
+@body_simple.validations = {
     "size": { "max": 255},
     "enabledMarks": ["bold"],
-    
-
-    #<Contentful: : Management: : Validation: @properties={
-        : in=>nil,
-        : size=>{
-          "max"=>255
-        },
-        : range=>nil,
-        : regexp=>nil,
-        : unique=>false,
-        : present=>false,
-        : linkField=>false,
-        : assetFileSize=>nil,
-        : linkContentType=>nil,
-        : linkMimetypeGroup=>nil,
-        : assetImageDimensions=>nil,
-        : enabledNodeTypes=>nil,
-        : enabledMarks=>nil
-      }>,
-      #<Contentful: : Management: : Validation: @properties={
-        : in=>nil,
-        : size=>nil,
-        : range=>nil,
-        : regexp=>nil,
-        : unique=>false,
-        : present=>false,
-        : linkField=>false,
-        : assetFileSize=>nil,
-        : linkContentType=>nil,
-        : linkMimetypeGroup=>nil,
-        : assetImageDimensions=>nil,
-        : enabledNodeTypes=>nil,
-        : enabledMarks=>nil
-      }>,
-      #<Contentful: : Management: : Validation: @properties={
-        : in=>nil,
-        : size=>nil,
-        : range=>nil,
-        : regexp=>nil,
-        : unique=>false,
-        : present=>false,
-        : linkField=>false,
-        : assetFileSize=>nil,
-        : linkContentType=>nil,
-        : linkMimetypeGroup=>nil,
-        : assetImageDimensions=>nil,
-        : enabledNodeTypes=>nil,
-        : enabledMarks=>[
-          "bold"
-        ]
-      }>,
-      #<Contentful: : Management: : Validation: @properties={
-        : in=>nil,
-        : size=>nil,
-        : range=>nil,
-        : regexp=>nil,
-        : unique=>false,
-        : present=>false,
-        : linkField=>false,
-        : assetFileSize=>nil,
-        : linkContentType=>nil,
-        : linkMimetypeGroup=>nil,
-        : assetImageDimensions=>nil,
-        : enabledNodeTypes=>[
-          "hyperlink",
-          "entry-hyperlink"
-        ],
-        : enabledMarks=>nil
-      }>
-  
-
+    "enabledNodeTypes": [
+      "hyperlink",
+      "entry-hyperlink"]
 }
 
 @body_limited_appearance = {
-    fieldId: @body_limited.id,
+    fieldId: @body_simple.id,
     settings: {
       helpText: "This text  " \
                 "it doesn't show up when you add the banner to a page"

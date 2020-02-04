@@ -14,6 +14,6 @@ require_relative 'contentful_fields'
         displayField: 'title',
         fields: [@title]
         },
-    appearance: [@title_appearance_banner]
+    appearance: [@title_appearance_invisible]
 }
   

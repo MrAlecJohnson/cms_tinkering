@@ -1,13 +1,29 @@
 # Functions for manipulating Contentful content model
 require 'contentful/management'
+require 'json'
+
+def export_type(env, content_type_id)
+    details = content_type(env, content_type_id)
+    appearance = content_type_appearance(details)
+    File.open(content_type_id.to_s + '.json', "w") do |f|
+        f.write(details.properties)
+    end
+    File.open(content_type_id.to_s + '_appearance.json', "w") do |f|
+        f.write(appearance)
+    end    
+end
 
 def content_type(env, type_to_find)
     return env.content_types.find(type_to_find)
 end
 
+def content_type_appearance(content_type)
+    return content_type.editor_interface.default.controls
+end
+
 def field_appearance(content_type, field)
-    interface_controls = content_type.editor_interface.default.controls
-    return interface_controls.select {|control| control['fieldId'] == field}[0]
+    type_appearance = content_type_appearance(env, content_type)
+    return type_appearance.select {|control| control['fieldId'] == field}[0]
 end
 
 def add_field(env, existing_type, new_field)
