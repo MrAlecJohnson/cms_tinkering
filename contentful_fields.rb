@@ -8,14 +8,15 @@ require 'contentful/management'
 # Standard title
 # test function version
 
-@title_test = new_field('title', {
-    name: 'Title',
+@title_test = {
+    id: 'testTitle',
+    name: 'Test title',
     type: 'Symbol',
     required: true,
     validations: {
         "size": { "min": 5, "max": 200}
     }
-})
+}
 
 @title = Contentful::Management::Field.new
 @title.id = 'title'

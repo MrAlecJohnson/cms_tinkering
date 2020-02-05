@@ -10,6 +10,9 @@ def content_type(env, content_type_id)
 end
 
 def content_type_appearance(content_type)
+    # I've been a bit inconsistent about when I pass the editor_interface
+    # and when I pass editor_interface.default.controls instead
+    # some things, like saving changes, require the editor_interface object
     return content_type.editor_interface.default.controls
 end
 
@@ -41,16 +44,8 @@ def all_data_for_type(env, content_type_id)
     return type_info
 end
 
-# Methods for creating new fields and types
 
-def new_field(id, attribute_hash)
-    #field = Contentful::Management::Field.new
-    #field.id = id
-    #attribute_hash.each do |k, v|
-    #    field.k = v
-    #end
-    #return field
-end
+# Methods for creating new fields and types
 
 def add_field_to_type(env, existing_type, new_field_data, new_field_appearance = nil)
     t = content_type(env, existing_type)
@@ -69,6 +64,10 @@ def add_type(env, new_type)
     type_id = new_type[:data][:id]
 
     created = env.content_types.create(new_type[:data])
+    puts created
+    if new_type[:fields]
+        new_type[:fields].each { |f| created.fields.create(f)}
+    end
     created.publish
 
     interface = env.editor_interfaces.default(type_id)
