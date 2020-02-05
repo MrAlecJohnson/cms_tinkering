@@ -6,12 +6,12 @@ require_relative 'contentful_fields'
 KEY = IO.read("/Users/alec/Python/KEYS/contentful_manage.txt").strip() # management API key
 client = Contentful::Management::Client.new(KEY)
 
-space = client.spaces.all.items[3].id # This is the public advice space
+space = client.spaces.all.items[1].id # This is the public advice space
 env = client.environments(space).find('master') # we dont' currently have any other envs
 types = env.content_types.all.map { |t| t.id }
 
 # for getting things from the test space
-old_space = client.spaces.all.items[2].id
+old_space = client.spaces.all.items[0].id # the test area space
 old_env = client.environments(old_space).find('master')
 old_types = old_env.content_types.all.map { |t| t.id }
 
@@ -47,10 +47,10 @@ if continue
     # use functions from contentful_functions
     # keep the objects themselves in contentful_types_fields
     # I should really set up classes for these but my Ruby is blah
+    puts 'test'
+    copy_type_to_env(old_env, env, 'topic')
     
-    add_type(env, @banner)
-    
-    #SAVE ALL CONTENT TYPES TO JSON
+    #SAVE ALL CONTENT TYPES AS JSON FILES
     #old_types.each do |content|
     #    export_type(old_env, content)
     #end

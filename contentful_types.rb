@@ -12,7 +12,7 @@ require_relative 'contentful_fields'
                     "a piece of advice content. Usually temporary - for example " \
                     "a survey we're currently running",
         displayField: 'title',
-        fields: [@title_test]
+        fields: [@title]
         },
     appearance: [@title_appearance_invisible]
 }
@@ -29,7 +29,7 @@ require_relative 'contentful_fields'
         fields: [@title]
         },
     appearance: [
-        @title_appearance_visible, 
+        @title_appearance_visible 
     ]
 
 }
