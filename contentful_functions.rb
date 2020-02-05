@@ -3,7 +3,7 @@ require 'contentful/management'
 require 'json'
 
 
-# Get information from Contentful
+# Methods for getting information from Contentful
 
 def content_type(env, content_type_id)
     return env.content_types.find(content_type_id)
@@ -23,8 +23,23 @@ def field_appearance(content_type, field_id)
     return type_appearance.select {|control| control['fieldId'] == field_id}[0]
 end
 
+def all_data_for_type(env, content_type_id)
+    original = content_type(env, content_type_id)
+    appearance = content_type_appearance(original)
+    type_info = {
+        data: {
+            id: original.id,
+            name: original.name,
+            description: original.description,
+            displayField: original.display_field,
+            fields: original.fields
+        },
+        appearance: appearance
+    }
+    return type_info
+end
 
-# Create new fields and types
+# Methods for creating new fields and types
 
 def new_field(id, attribute_hash)
     #field = Contentful::Management::Field.new
@@ -38,13 +53,13 @@ end
 def add_field_to_type(env, existing_type, new_field_data, new_field_appearance = nil)
     t = content_type(env, existing_type)
     t.fields.add(new_field_data)
-    t.save()
+    t.publish()
 
     if new_field_appearance
-        interface = content_type_appearance(existing_type)
-        appearance = interface.controls.select {|control| control['fieldId'] == new_field_data['id']}[0]
-        appearance['settings'] = new_field_appearance
-        interface.save()
+        interface = t.editor_interface.default
+        num = interface.controls.find_index { |i| i['fieldId'] == new_field_data.id }
+        interface.controls[num] = new_field_appearance
+        interface.save
     end
 end
 
@@ -62,7 +77,7 @@ def add_type(env, new_type)
 
 end
 
-# Move content types around
+# Methods for moving content types around
 def export_type_data(env, content_type_id)
     details = content_type(env, content_type_id)
     appearance = content_type_appearance(details)
@@ -72,22 +87,6 @@ def export_type_data(env, content_type_id)
     File.open(content_type_id.to_s + '_appearance.json', "w") do |f|
         f.write(appearance)
     end    
-end
-
-def all_data_for_type(env, content_type_id)
-    original = content_type(env, content_type_id)
-    appearance = content_type_appearance(original)
-    type_info = {
-        data: {
-            id: original.id,
-            name: original.name,
-            description: original.description,
-            displayField: original.display_field,
-            fields: original.fields
-        },
-        appearance: appearance
-    }
-    return type_info
 end
 
 def copy_type_to_env(old_env, new_env, content_type_id)
@@ -103,4 +102,3 @@ def copy_field_to_type(env, field_id, original_type, new_type)
 
     add_field_to_type(env, new_type, original_field, original_field_appearance)
 end
-
