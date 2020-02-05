@@ -18,7 +18,7 @@ old_types = old_env.content_types.all.map { |t| t.id }
 # content types, categorised - add them here as they're created
 pages = []
 units = []
-dynamic = []
+dynamic = ['banner']
 tools = []
 metadata = ['topic']
 everything = [pages, units, dynamic, tools, metadata].flatten.sort
@@ -48,7 +48,7 @@ if continue
     # keep the objects themselves in contentful_types_fields
     # I should really set up classes for these but my Ruby is blah
     puts 'test'
-    add_field_to_type(env, 'topic', @adviser_title, @adviser_title_appearance)
+    copy_field_to_type(env, 'adviserName', 'topic', 'banner')
     
     #SAVE ALL CONTENT TYPES AS JSON FILES
     #old_types.each do |content|

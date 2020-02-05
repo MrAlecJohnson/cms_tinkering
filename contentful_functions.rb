@@ -15,11 +15,13 @@ end
 
 def field_data(env, content_type_id, field_id)
     parent_type = content_type(env, content_type_id).fields
-    current_field = parent_type.select {|field| field['fieldId'] == field_id}[0]
+    current_field = parent_type.select {|field| field.id == field_id}[0]
 end
 
 def field_appearance(content_type, field_id)
-    type_appearance = content_type_appearance(env, content_type)
+    # work out if it would be better to use content_type_id here instead
+    # currently you have to pass it the actual content type object
+    type_appearance = content_type_appearance(content_type)
     return type_appearance.select {|control| control['fieldId'] == field_id}[0]
 end
 
@@ -77,7 +79,9 @@ def add_type(env, new_type)
 
 end
 
+
 # Methods for moving content types around
+
 def export_type_data(env, content_type_id)
     details = content_type(env, content_type_id)
     appearance = content_type_appearance(details)
@@ -98,7 +102,7 @@ end
 
 def copy_field_to_type(env, field_id, original_type, new_type)
     original_field = field_data(env, original_type, field_id)
-    original_field_appearance = field_appearance(original_type, field_id)
+    original_field_appearance = field_appearance(content_type(env, original_type), field_id)
 
     add_field_to_type(env, new_type, original_field, original_field_appearance)
 end
