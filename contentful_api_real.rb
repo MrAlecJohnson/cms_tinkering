@@ -48,4 +48,10 @@ if continue
     # keep the objects themselves in contentful_types_fields
     # I should really set up classes for these but my Ruby is blah
     puts 'test'
+    
+    # DO FOR ALL CONTENT TYPES
+    #old_types.each do |content|
+    #    export_type_data(old_env, content)
+    #end
+
 end
