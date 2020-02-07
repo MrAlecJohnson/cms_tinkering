@@ -132,7 +132,7 @@ require 'contentful/management'
     type: "Array",
     items: {
         type: 'Link',
-        linkType: "Entry"
+        linkType: "Entry",
         required: false,
         validations: {
             "linkContentType": [
@@ -151,7 +151,7 @@ require 'contentful/management'
     type: "Array",
     items: {
         type: 'Link',
-        linkType: "Entry"
+        linkType: "Entry",
         required: false,
         validations: {
             "linkContentType": [

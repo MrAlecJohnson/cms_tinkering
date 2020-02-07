@@ -31,9 +31,24 @@ require_relative 'contentful_fields'
         description: "A self-contained piece of advice that answers " \
                     "a definitive user need from start to end. " \
                     "Appears on the website as a page",
-        displayField: 'title',
-        fields: [@title]
         },
+    fields: [
+        'title',
+        'adviser_title',
+        'url_ending',
+        'body',
+        'meta_description',
+        'last_accuracy_review',
+        'classification_number',
+        'child_content',
+        'related_content',
+        'banner_field',
+        'version_information',
+        'start_task_list',
+        'chat_category',
+        'hide_from_search'
+    ],
+    displayField: 'title',
     appearance: [
         @title_appearance_visible 
     ]
