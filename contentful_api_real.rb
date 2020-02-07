@@ -16,11 +16,11 @@ old_env = client.environments(old_space).find('master')
 old_types = old_env.content_types.all.map { |t| t.id }
 
 # content types, categorised - add them here as they're created
-pages = ['adviceCollection']
+pages = []
 units = []
 dynamic = []
 tools = []
-metadata = ['topic']
+metadata = []
 everything = [pages, units, dynamic, tools, metadata].flatten.sort
 
 # check for new content types not on these lists
@@ -48,10 +48,4 @@ if continue
     # keep the objects themselves in contentful_types_fields
     # I should really set up classes for these but my Ruby is blah
     puts 'test'
-    add_type(env, @banner)
-    
-    #SAVE ALL CONTENT TYPES AS JSON FILES
-    #old_types.each do |content|
-    #    export_type(old_env, content)
-    #end
 end

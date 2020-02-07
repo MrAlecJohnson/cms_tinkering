@@ -1,4 +1,10 @@
 # data structures for content types  
+# these can probably be improved
+# in particular, 'displayField' could happily sit in 'data'
+# if you can make my add_type function work better. 
+# You can't select displayField until the fields are created, 
+# and my current add_type function adds the fields later
+# so it has to select displayField later
 
 require 'contentful/management'
 require_relative 'contentful_fields'
@@ -13,6 +19,7 @@ require_relative 'contentful_fields'
                     "a survey we're currently running"
     },
     fields: [@title_test],
+    displayField: 'title',
     appearance: [@title_appearance_invisible]
 }
   

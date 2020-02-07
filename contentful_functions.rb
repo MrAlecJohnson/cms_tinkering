@@ -64,10 +64,10 @@ def add_type(env, new_type)
     type_id = new_type[:data][:id]
 
     created = env.content_types.create(new_type[:data])
-    puts created
     if new_type[:fields]
         new_type[:fields].each { |f| created.fields.create(f)}
     end
+    created.displayField = new_type[:displayField]
     created.publish
 
     interface = env.editor_interfaces.default(type_id)
@@ -79,7 +79,7 @@ def add_type(env, new_type)
 end
 
 
-# Methods for moving content types around
+# Methods for moving, copying and deleting content types
 
 def export_type_data(env, content_type_id)
     details = content_type(env, content_type_id)
@@ -104,4 +104,12 @@ def copy_field_to_type(env, field_id, original_type, new_type)
     original_field_appearance = field_appearance(content_type(env, original_type), field_id)
 
     add_field_to_type(env, new_type, original_field, original_field_appearance)
+end
+
+def delete_type(env, content_type_id)
+    target = content_type(env, content_type_id)
+    target.deactivate
+    target.destroy
+
+    puts "Content type '#{target.name}' deleted."
 end
