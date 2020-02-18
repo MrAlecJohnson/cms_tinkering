@@ -25,7 +25,7 @@ types_to_update = [
     'testType'
 ]
 
-array_to_run = types_to_update
+array_to_run = types_to_keep
 
 new_data = {
     "contentTypes": Array.new,

@@ -14,7 +14,7 @@ test_area_master = client.environments(test_area).find('master')
 test_area_alec = client.environments(test_area).find('alec_test_migration')
 
 # select the env I want for the rest of the script
-relevant_env = test_area_qa
+relevant_env = test_area_master
 
 # content types, categorised - add them here as they're created
 pages = []
@@ -55,18 +55,15 @@ if continue
     #end
     
     #DELETE ALL CONTENT - DON'T DO THIS UNLESS YOU REALLY WANT TO!
-    #existing = relevant_env.entries.all
-    #existing.each do |entry|
-    #    entry.destroy
-    #end
+    existing = relevant_env.entries.all
+    existing.each do |entry|
+        entry.unpublish
+        entry.destroy
+    end
 
     # DO FOR ALL CONTENT TYPES
-    current_types.each do |t|    
-        type_data = content_type(relevant_env, t)
-        type_data.fields.each do |field|
-            if field.id == 'audience'
-                puts 'yes'
-            end
-        end
+    current_types.each do |t|  
+        delete_type(relevant_env, t)  
     end
 end
+
