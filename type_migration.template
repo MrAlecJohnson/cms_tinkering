@@ -1,0 +1,7 @@
+#! /bin/bash
+cd ~/ruby/content_model/types
+contentful space export --space-id SPACE_ID --environment-id ENV_ID --skip-content --skip-roles --skip-webhooks --content-file exported_types.json
+cd ..
+ruby transform_export.rb
+cd types
+contentful space import --content-file for_import.json --space-id SPACE_ID --environment-id ENV_ID --content-model-only --skip-locales

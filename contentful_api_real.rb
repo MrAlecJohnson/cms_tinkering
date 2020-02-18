@@ -1,39 +1,41 @@
 require 'contentful/management'
 require_relative 'contentful_functions'
-require_relative 'contentful_types'
-require_relative 'contentful_fields'
 
 KEY = IO.read("/Users/alec/Python/KEYS/contentful_manage.txt").strip() # management API key
 client = Contentful::Management::Client.new(KEY)
 
-space = client.spaces.all.items[1].id # This is the public advice space
-env = client.environments(space).find('master') # we dont' currently have any other envs
-types = env.content_types.all.map { |t| t.id }
+public_advice = client.spaces.all.items[1].id # This is the public advice space
+public_advice_master = client.environments(public_advice).find('master') # we don't currently have any other envs
 
 # for getting things from the test space
-old_space = client.spaces.all.items[0].id # the test area space
-old_env = client.environments(old_space).find('master')
-old_types = old_env.content_types.all.map { |t| t.id }
+test_area = client.spaces.all.items[0].id # the test area space
+test_area_qa = client.environments(test_area).find('qa')
+test_area_master = client.environments(test_area).find('master')
+test_area_alec = client.environments(test_area).find('alec_test_migration')
+
+# select the env I want for the rest of the script
+relevant_env = test_area_alec
 
 # content types, categorised - add them here as they're created
-pages = ['adviceCollectionAdviser', 'adviceList']
+pages = []
 units = []
-dynamic = ['banner']
+dynamic = []
 tools = []
 metadata = []
 everything = [pages, units, dynamic, tools, metadata].flatten.sort
 
 # check for new content types not on these lists
 # also check for things on lists that aren't in CMS
-leftovers = types.select do |t|
+current_types = relevant_env.content_types.all.map { |t| t.id }
+leftovers = current_types.select do |t|
     !everything.include?(t)
 end
 
 legacy = everything.select do |e|
-    !types.include?(e)
+    !current_types.include?(e)
 end
 
-continue = false
+continue = true # change back to false when I want to reactivate the type checker
 if leftovers.any? or legacy.any? 
     puts 'New types to add to script:', leftovers 
     puts 'Old types still in script:', legacy
@@ -45,13 +47,21 @@ end
 if continue
     # add stuff you want to do here 
     # use functions from contentful_functions
-    # keep the objects themselves in contentful_types_fields
-    # I should really set up classes for these but my Ruby is blah
     puts 'test'
-    add_type(env, @collection_public)
-    # DO FOR ALL CONTENT TYPES
-    #old_types.each do |content|
-    #    export_type_data(old_env, content)
+    
+    # DO FOR AN ARRAY
+    #types_to_copy.each do |t|
+    #    copy_field_to_type(old_env, t, 'adviceCollection', 'adviceList')
     #end
+    
+    #existing = relevant_env.entries.all
+    #existing.each do |entry|
+    #    entry.destroy
+    #end
+
+    # DO FOR ALL CONTENT TYPES
+    current_types.each do |t|    
+        delete_type(relevant_env, t)
+    end
 
 end

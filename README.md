@@ -1,15 +1,16 @@
 # content_model
-Create and edit content models in a reproducible way.
+This is a reusable way to export a content model from an environment, transform that model (or just select the relevant types), and then import it to another environment. 
 
-**contentful_api_real** is a framework for whatever creation or change methods I want to run. Specify the changes at the end of this then run it. 
+Also includes a set of functions for changing parts of a content model. 
 
-**contentful_functions** is a set of methods for adding, removing and changing types and fields 
+**contentful_api_real.rb** is a framework for whatever creation or change methods I want to run. Specify the changes at the end of this then run it. 
 
-**contentful_fields** is a record of all the fields and their associated varieties of interface settings
+**contentful_functions.rb** is a set of methods for adding, removing and changing types and fields.
 
-**contentful_types** records the content types, which fields they include, and which interface settings to apply to each of those fields
+**transform_export.rb** is makes changes to the exported content model and resaves it to a new json file. At the moment all it does is delete content types that aren't yet ready for the master environment. 
 
-The Python file was the version I started with - it's no longer important. You can also ignore contentful_api_test_area and contentful_deliver. These are just for my testing purposes. 
+**type_migration.template** is a bash script template that environment ids adding. Then rename it to .command and run it. It will export, transform and import. 
+
 
 ## How Contentful content models fit together
 A content model contains a number of content types. 

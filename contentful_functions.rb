@@ -47,8 +47,8 @@ end
 
 # Methods for creating new fields and types
 
-def add_field_to_type(env, existing_type, new_field_data, new_field_appearance = nil)
-    t = content_type(env, existing_type)
+def add_field_to_type(env, existing_type_id, new_field_data, new_field_appearance = nil)
+    t = content_type(env, existing_type_id)
     t.fields.add(new_field_data)
     t.publish()
 
@@ -61,11 +61,18 @@ def add_field_to_type(env, existing_type, new_field_data, new_field_appearance =
 end
 
 def add_type(env, new_type)
+    # This zaps the last item from rich text field validations
+    # As a workaround till the gem gets fixed
     type_id = new_type[:data][:id]
 
     created = env.content_types.create(new_type[:data])
     if new_type[:fields]
-        new_type[:fields].each { |f| created.fields.create(f)}
+        new_type[:fields].each do |f| 
+            if f.type == 'RichText'
+                f.validations.pop()
+            end
+            created.fields.create(f)
+        end
     end
     created.displayField = new_type[:displayField]
     created.publish
@@ -113,3 +120,4 @@ def delete_type(env, content_type_id)
 
     puts "Content type '#{target.name}' deleted."
 end
+
