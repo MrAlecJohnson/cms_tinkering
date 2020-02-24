@@ -121,3 +121,10 @@ def delete_type(env, content_type_id)
     puts "Content type '#{target.name}' deleted."
 end
 
+
+# Methods for messing with locales and environments
+def add_locale(env, locale_name, locale_code)
+    # add options for empty fields and fallback
+    env.locales.create(name: locale_name, code: locale_code)
+end
+

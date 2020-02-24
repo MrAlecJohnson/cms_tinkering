@@ -5,7 +5,9 @@ KEY = IO.read("/Users/alec/Python/KEYS/contentful_manage.txt").strip() # managem
 client = Contentful::Management::Client.new(KEY)
 
 public_advice = client.spaces.all.items[1].id # This is the public advice space
-public_advice_master = client.environments(public_advice).find('master') # we don't currently have any other envs
+public_advice_master = client.environments(public_advice).find('master')
+public_advice_qa = client.environments(public_advice).find('qa')
+public_advice_dev = client.environments(public_advice).find('dev')
 
 # for getting things from the test space
 test_area = client.spaces.all.items[0].id # the test area space
@@ -48,22 +50,26 @@ if continue
     # add stuff you want to do here 
     # use functions from contentful_functions
     puts 'test'
-    
+    [public_advice_master, public_advice_qa, public_advice_dev].each do |env|
+        add_locale(env, 'English (Scotland)', 'en-SCT')
+        add_locale(env, 'English (Wales)', 'en-WLS')
+    end
+
     # DO FOR AN ARRAY
     #types_to_copy.each do |t|
     #    copy_field_to_type(old_env, t, 'adviceCollection', 'adviceList')
     #end
     
     #DELETE ALL CONTENT - DON'T DO THIS UNLESS YOU REALLY WANT TO!
-    existing = relevant_env.entries.all
-    existing.each do |entry|
-        entry.unpublish
-        entry.destroy
-    end
+    #existing = relevant_env.entries.all
+    #existing.each do |entry|
+    #    entry.unpublish
+    #    entry.destroy
+    #end
 
     # DO FOR ALL CONTENT TYPES
-    current_types.each do |t|  
-        delete_type(relevant_env, t)  
-    end
+    #current_types.each do |t|  
+    #    delete_type(relevant_env, t)  
+    #end
 end
 
