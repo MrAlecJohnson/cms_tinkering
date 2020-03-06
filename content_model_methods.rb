@@ -1,5 +1,6 @@
 require 'contentful/management'
 
+# INCOMPLETE but I want to move to this to remove repetition
 def change_field_in_all_types(data, field_id, &block)
     new_data = {
         contentTypes: [],

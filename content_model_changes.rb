@@ -113,3 +113,62 @@ def rich_text_styling(data)
     end
     return new_data
 end
+
+def add_adviser_warning_field(data)
+    types = [
+        'adviceCollection',
+        'adviceCollectionAdviser',
+        'adviceList'
+    ]
+
+    new_field = {
+        "id": "adviserWarning",
+        "name": "Adviser warning",
+        "type": "Link",
+        "localized": false,
+        "required": false,
+        "validations": [
+          {
+            "linkContentType": [
+              "adviserWarning"
+            ]
+          }
+        ],
+        "disabled": false,
+        "omitted": false,
+        "linkType": "Entry"
+      }
+
+    help_text = {
+        "fieldId": "adviserWarning",
+        "settings": {
+          "helpText": "Adds an adviser-only sticky box to the top of the page, like on the immigration public pages"
+        },
+        "widgetId": "entryLinkEditor",
+        "widgetNamespace": "builtin"
+    }
+
+    new_data = {
+        contentTypes: [],
+        editorInterfaces: []
+    }
+
+    to_change = data['contentTypes'].select{|t| types.include? t['sys']['id']}
+    to_change.each do |t|
+        fields = t['fields']
+        fields << new_field
+        new_data[:contentTypes] << t
+    end
+
+    appearance = data['editorInterfaces'].select do |t| 
+        types.include? t['sys']['contentType']['sys']['id']
+    end
+
+    appearance.each do |t|
+        t['controls'] << help_text
+        new_data[:editorInterfaces] << t
+    end
+
+    return new_data
+
+end

@@ -1,0 +1,1426 @@
+{
+  "contentTypes": [
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "vms0u05139aw"
+          }
+        },
+        "id": "adviceCollection",
+        "type": "ContentType",
+        "createdAt": "2020-02-19T09:48:27.154Z",
+        "updatedAt": "2020-03-06T17:04:40.606Z",
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 33,
+        "publishedAt": "2020-03-06T17:04:40.606Z",
+        "firstPublishedAt": "2020-02-19T09:48:32.322Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "publishedCounter": 16,
+        "version": 34,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        }
+      },
+      "displayField": "title",
+      "name": "Advice collection - public",
+      "description": "A self-contained piece of advice that answers a definitive user need from start to end. \n\nAppears on the website as a page.",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": true,
+          "required": true,
+          "validations": [
+            {
+              "size": {
+                "min": 5,
+                "max": 150
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "adviserTitle",
+          "name": "Adviser title",
+          "type": "Symbol",
+          "localized": true,
+          "required": false,
+          "validations": [
+            {
+              "unique": true
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "urlEnding",
+          "name": "Url ending",
+          "type": "Symbol",
+          "localized": true,
+          "required": true,
+          "validations": [
+            {
+              "unique": true
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "audience",
+          "name": "Audience",
+          "type": "Array",
+          "localized": false,
+          "required": true,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Symbol",
+            "validations": [
+              {
+                "in": [
+                  "England",
+                  "Scotland",
+                  "Wales",
+                  "Welsh language"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "body",
+          "name": "Body",
+          "type": "RichText",
+          "localized": true,
+          "required": false,
+          "validations": [
+            {
+              "nodes": {
+                "entry-hyperlink": [
+                  {
+                    "linkContentType": [
+                      "adviceCollectionAdviser",
+                      "adviceCollection",
+                      "adviceList"
+                    ]
+                  }
+                ],
+                "embedded-entry-block": [
+                  {
+                    "linkContentType": [
+                      "calloutAdviser",
+                      "callout",
+                      "contactDetails",
+                      "contentPattern",
+                      "locationSpecificContent",
+                      "table",
+                      "circumstantialUnitAdviser",
+                      "circumstantialUnit",
+                      "templateLetter"
+                    ]
+                  }
+                ],
+                "embedded-entry-inline": [
+                  {
+                    "linkContentType": [
+                      "contactDetails",
+                      "contentPattern",
+                      "legislationLink",
+                      "amount"
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "enabledMarks": [
+                "bold"
+              ],
+              "message": "Only bold marks are allowed"
+            },
+            {
+              "enabledNodeTypes": [
+                "heading-2",
+                "heading-3",
+                "heading-4",
+                "ordered-list",
+                "unordered-list",
+                "embedded-entry-block",
+                "embedded-asset-block",
+                "hyperlink",
+                "entry-hyperlink",
+                "asset-hyperlink",
+                "embedded-entry-inline"
+              ],
+              "message": "Only headings 2 to 4, ordered lists, unordered lists, assets, links and embedded entries are allowed"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "metaDescription",
+          "name": "Meta Description",
+          "type": "Text",
+          "localized": true,
+          "required": false,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "adviserMetaDescription",
+          "name": "Adviser meta description",
+          "type": "Text",
+          "localized": true,
+          "required": false,
+          "validations": [
+            {
+              "size": {
+                "max": 250
+              },
+              "message": "Please make this less than 250 characters, so it's easy to skim on a search results page"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "lastAccuracyReview",
+          "name": "Last accuracy review",
+          "type": "Date",
+          "localized": false,
+          "required": false,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "classificationNumber",
+          "name": "Classification number",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "unique": true
+            },
+            {
+              "regexp": {
+                "pattern": "^(?:\\d{1,3}\\.){4}$",
+                "flags": null
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "childContent",
+          "name": "Child content",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": [
+                  "adviceCollectionAdviser",
+                  "adviceCollection",
+                  "adviceList"
+                ]
+              }
+            ],
+            "linkType": "Entry"
+          }
+        },
+        {
+          "id": "relatedCollections",
+          "name": "Related collections",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": [
+                  "adviceCollectionAdviser",
+                  "adviceCollection"
+                ]
+              }
+            ],
+            "linkType": "Entry"
+          }
+        },
+        {
+          "id": "banner",
+          "name": "Banner",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "banner"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "versionInformation",
+          "name": "Version information",
+          "type": "Text",
+          "localized": false,
+          "required": true,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "startTaskList",
+          "name": "Start of task list?",
+          "type": "Boolean",
+          "localized": false,
+          "required": true,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "onlineChatCategory",
+          "name": "Online chat category",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "in": [
+                "Standard chat",
+                "No chat",
+                "Universal Credit",
+                "Help to Claim contact page",
+                "Debt",
+                "Debt - Northern Ireland",
+                "Scams",
+                "Scams landing page",
+                "Consumer",
+                "Consumer - contact us",
+                "Contact us page",
+                "Chat training"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "hideFromSearchEngines",
+          "name": "Hide from search engines?",
+          "type": "Boolean",
+          "localized": false,
+          "required": true,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "adviserWarning",
+          "name": "Adviser warning",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "adviserWarning"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "adviserWarning",
+          "name": "Adviser warning",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "adviserWarning"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "vms0u05139aw"
+          }
+        },
+        "id": "adviceList",
+        "type": "ContentType",
+        "createdAt": "2020-02-19T09:48:28.152Z",
+        "updatedAt": "2020-03-06T16:51:54.585Z",
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 21,
+        "publishedAt": "2020-03-06T16:51:54.585Z",
+        "firstPublishedAt": "2020-02-19T09:48:31.062Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "publishedCounter": 11,
+        "version": 22,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        }
+      },
+      "displayField": "title",
+      "name": "Advice list",
+      "description": "A curated group of advice collections on a particular theme. ",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": true,
+          "required": true,
+          "validations": [
+            {
+              "size": {
+                "min": 5,
+                "max": 150
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "urlEnding",
+          "name": "Url ending",
+          "type": "Symbol",
+          "localized": true,
+          "required": true,
+          "validations": [
+            {
+              "unique": true
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "audience",
+          "name": "Audience",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Symbol",
+            "validations": [
+              {
+                "in": [
+                  "England",
+                  "Scotland",
+                  "Wales",
+                  "Welsh language"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "body",
+          "name": "Body",
+          "type": "RichText",
+          "localized": true,
+          "required": false,
+          "validations": [
+            {
+              "nodes": {
+              }
+            },
+            {
+              "enabledMarks": [
+                "bold"
+              ],
+              "message": "Only bold marks are allowed"
+            },
+            {
+              "enabledNodeTypes": [
+                "heading-2",
+                "heading-3",
+                "heading-4",
+                "hyperlink",
+                "entry-hyperlink",
+                "asset-hyperlink",
+                "unordered-list",
+                "ordered-list"
+              ],
+              "message": "Only heading 2, heading 3, heading 4, link to Url, link to entry, link to asset, unordered list, and ordered list nodes are allowed"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "childContent",
+          "name": "Child content",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": [
+                  "adviceCollectionAdviser",
+                  "adviceCollection",
+                  "adviceList"
+                ]
+              }
+            ],
+            "linkType": "Entry"
+          }
+        },
+        {
+          "id": "listStyle",
+          "name": "List style",
+          "type": "Boolean",
+          "localized": false,
+          "required": true,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "metaDescription",
+          "name": "Meta description",
+          "type": "Text",
+          "localized": true,
+          "required": false,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "adviserMetaDescription",
+          "name": "Adviser meta description",
+          "type": "Text",
+          "localized": true,
+          "required": false,
+          "validations": [
+            {
+              "size": {
+                "max": 250
+              },
+              "message": "Please make this less than 250 characters, so it's easy to skim on a search results page"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "banner",
+          "name": "Banner",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "banner"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "versionInformation",
+          "name": "Version information",
+          "type": "Text",
+          "localized": false,
+          "required": true,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "onlineChatCategory",
+          "name": "Online chat category",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "in": [
+                "Standard chat",
+                "No chat",
+                "Universal Credit",
+                "Help to Claim contact page",
+                "Debt",
+                "Debt - Northern Ireland",
+                "Scams",
+                "Scams landing page",
+                "Consumer",
+                "Consumer - contact us",
+                "Contact us page",
+                "Chat training"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "hideFromSearchEngines",
+          "name": "Hide from search engines?",
+          "type": "Boolean",
+          "localized": false,
+          "required": true,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "adviserWarning",
+          "name": "Adviser warning",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "adviserWarning"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "adviserWarning",
+          "name": "Adviser warning",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "adviserWarning"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "vms0u05139aw"
+          }
+        },
+        "id": "adviceCollectionAdviser",
+        "type": "ContentType",
+        "createdAt": "2020-02-19T14:35:10.852Z",
+        "updatedAt": "2020-03-06T16:51:54.319Z",
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 7,
+        "publishedAt": "2020-03-06T16:51:54.319Z",
+        "firstPublishedAt": "2020-02-19T14:35:15.396Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "publishedCounter": 4,
+        "version": 8,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        }
+      },
+      "displayField": "title",
+      "name": "Advice collection - adviser",
+      "description": "NOT YET FINALISED - WAITING TILL AFTER PUBLIC DONE. ",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": true,
+          "required": true,
+          "validations": [
+            {
+              "unique": true
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "urlEnding",
+          "name": "Url ending",
+          "type": "Symbol",
+          "localized": true,
+          "required": true,
+          "validations": [
+            {
+              "unique": true
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "audience",
+          "name": "Audience",
+          "type": "Array",
+          "localized": false,
+          "required": true,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Symbol",
+            "validations": [
+              {
+                "in": [
+                  "England",
+                  "Scotland",
+                  "Wales",
+                  "Welsh language"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "body",
+          "name": "Body",
+          "type": "RichText",
+          "localized": true,
+          "required": false,
+          "validations": [
+            {
+              "nodes": {
+                "entry-hyperlink": [
+                  {
+                    "linkContentType": [
+                      "adviceCollectionAdviser",
+                      "adviceCollection",
+                      "adviceList"
+                    ]
+                  }
+                ],
+                "embedded-entry-block": [
+                  {
+                    "linkContentType": [
+                      "callout",
+                      "calloutAdviser",
+                      "contactDetails",
+                      "contentPattern",
+                      "locationSpecificContent",
+                      "table",
+                      "targetedContent",
+                      "targetedContentAdviser",
+                      "templateLetter"
+                    ]
+                  }
+                ],
+                "embedded-entry-inline": [
+                  {
+                    "linkContentType": [
+                      "amount",
+                      "contentPattern",
+                      "legislationLink"
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "enabledNodeTypes": [
+                "heading-2",
+                "heading-3",
+                "heading-4",
+                "ordered-list",
+                "unordered-list",
+                "embedded-entry-block",
+                "embedded-asset-block",
+                "hyperlink",
+                "entry-hyperlink",
+                "asset-hyperlink",
+                "embedded-entry-inline"
+              ],
+              "message": "Only heading 2, heading 3, heading 4, ordered list, unordered list, horizontal rule, quote, block entry, asset, link to Url, link to entry, link to asset, and inline entry nodes are allowed"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "lastAccuracyReview",
+          "name": "Last accuracy review",
+          "type": "Date",
+          "localized": false,
+          "required": false,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "banner",
+          "name": "Banner",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "banner"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "equivalentPublicCollection",
+          "name": "Equivalent public collection",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "adviceCollection"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "startOfTaskList",
+          "name": "Start of task list?",
+          "type": "Boolean",
+          "localized": false,
+          "required": true,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "versionInformation",
+          "name": "Version information",
+          "type": "Text",
+          "localized": false,
+          "required": false,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "adviserWarning",
+          "name": "Adviser warning",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "adviserWarning"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "adviserWarning",
+          "name": "Adviser warning",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "adviserWarning"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        }
+      ]
+    }
+  ],
+  "editorInterfaces": [
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "vms0u05139aw",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 25,
+        "createdAt": "2020-02-19T09:48:32.406Z",
+        "createdBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2020-03-06T17:04:41.329Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "adviceCollection",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "adviserTitle",
+          "settings": {
+            "helpText": "Advisers will see this title instead of the public one"
+          },
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "urlEnding",
+          "widgetId": "slugEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "audience",
+          "widgetId": "checkbox",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "body",
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "metaDescription",
+          "widgetId": "multipleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "adviserMetaDescription",
+          "settings": {
+            "helpText": "Leave this blank to keep it the same as the public meta description"
+          },
+          "widgetId": "multipleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "lastAccuracyReview",
+          "settings": {
+            "format": "dateonly",
+            "helpText": "Please fill this in whenever the page is fully factchecked"
+          },
+          "widgetId": "datePicker",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "classificationNumber",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "childContent",
+          "settings": {
+            "bulkEditing": false
+          },
+          "widgetId": "entryLinksEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "relatedCollections",
+          "settings": {
+            "helpText": "If you want to include a 'related pages' box, add the relevant collections here.",
+            "bulkEditing": false
+          },
+          "widgetId": "entryLinksEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "banner",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "versionInformation",
+          "settings": {
+            "helpText": "Describe what you've changed, why you've changed it and what source the change has come from"
+          },
+          "widgetId": "markdown",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "startTaskList",
+          "widgetId": "boolean",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "onlineChatCategory",
+          "widgetId": "radio",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "hideFromSearchEngines",
+          "settings": {
+            "helpText": "Selecting 'yes' hides this collection from Google, internal search and our website navigation. People will only be able to reach it from a direct url",
+            "trueLabel": "Yes",
+            "falseLabel": "No"
+          },
+          "widgetId": "boolean",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "adviserWarning",
+          "settings": {
+            "helpText": "Adds an adviser-only sticky box to the top of the page, like on the immigration public pages"
+          }
+        },
+        {
+          "fieldId": "adviserWarning",
+          "settings": {
+            "helpText": "Adds an adviser-only sticky box to the top of the page, like on the immigration public pages"
+          },
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "vms0u05139aw",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 17,
+        "createdAt": "2020-02-19T09:48:31.141Z",
+        "createdBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2020-03-06T16:51:54.658Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "adviceList",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "urlEnding",
+          "widgetId": "slugEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "audience",
+          "widgetId": "checkbox",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "body",
+          "settings": {
+            "helpText": "Use this for the optional text that shows up at the top of some old index pages"
+          },
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "childContent",
+          "settings": {
+            "helpText": "Select any content that appears under this in the navigation - for example, the pages that will appear on an index",
+            "bulkEditing": false
+          },
+          "widgetId": "entryLinksEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "listStyle",
+          "settings": {
+            "helpText": "Box list is the old style of index page, like the benefits index. Text list is the newer style, like consumer.",
+            "trueLabel": "Text list",
+            "falseLabel": "Box list"
+          },
+          "widgetId": "boolean",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "metaDescription",
+          "widgetId": "multipleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "adviserMetaDescription",
+          "settings": {
+            "helpText": "Leave this blank to keep it the same as the public meta description"
+          },
+          "widgetId": "multipleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "banner",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "versionInformation",
+          "widgetId": "multipleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "onlineChatCategory",
+          "widgetId": "dropdown",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "hideFromSearchEngines",
+          "settings": {
+            "helpText": "Selecting 'yes' hides this collection from Google, internal search and our website navigation. People will only be able to reach it from a direct url",
+            "trueLabel": "Yes",
+            "falseLabel": "No"
+          },
+          "widgetId": "boolean",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "adviserWarning"
+        },
+        {
+          "fieldId": "adviserWarning",
+          "settings": {
+            "helpText": "Adds an adviser-only sticky box to the top of the page, like on the immigration public pages"
+          },
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "vms0u05139aw",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 6,
+        "createdAt": "2020-02-19T14:35:15.466Z",
+        "createdBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2020-03-06T16:51:54.396Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "adviceCollectionAdviser",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "urlEnding",
+          "widgetId": "slugEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "audience",
+          "widgetId": "checkbox",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "body",
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "lastAccuracyReview",
+          "settings": {
+            "format": "dateonly"
+          },
+          "widgetId": "datePicker",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "banner",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "equivalentPublicCollection",
+          "settings": {
+            "helpText": "Some topics have totally separate adviser and public content. Here you can identify where we have different content that covers the same user need. Leave blank where Advisernet has the same content as the public site"
+          },
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "startOfTaskList",
+          "settings": {
+            "trueLabel": "Yes",
+            "falseLabel": "No"
+          },
+          "widgetId": "boolean",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "versionInformation",
+          "settings": {
+            "helpText": "Describe what you've changed, why you've changed it and what source the change has come from"
+          },
+          "widgetId": "markdown",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "adviserWarning"
+        },
+        {
+          "fieldId": "adviserWarning",
+          "settings": {
+            "helpText": "Adds an adviser-only sticky box to the top of the page, like on the immigration public pages"
+          },
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    }
+  ]
+}

@@ -12,7 +12,7 @@ NOW = DateTime.now.strftime("%Y_%m_%d")
 # CONFIG VARIABLES
 export_only = false # sometimes I just want to look at the export json
 environment = 'content_playground' # content_playground, dev, qa, master
-to_run = 'rich_text_styling' # the name of the change method to run, as a string
+to_run = 'add_adviser_warning_field' # the name of the change method to run, as a string
 
 export_file = "changes/#{to_run}_#{environment}_export_#{NOW}.json" 
 import_file = "changes/#{to_run}_#{environment}_import_#{NOW}.json"
