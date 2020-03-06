@@ -1,0 +1,5746 @@
+{
+  "contentTypes": [
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "vms0u05139aw"
+          }
+        },
+        "id": "banner",
+        "type": "ContentType",
+        "createdAt": "2020-02-19T09:48:27.135Z",
+        "updatedAt": "2020-02-19T14:35:22.244Z",
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2020-02-19T14:35:22.244Z",
+        "firstPublishedAt": "2020-02-19T09:48:31.862Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        }
+      },
+      "displayField": "title",
+      "name": "Banner",
+      "description": "An alert you want to display as soon as someone views a piece of advice content. Usually temporary - for example a warning at the top of a webpage that the law is about to change.",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "size": {
+                "min": 5,
+                "max": 150
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "body",
+          "name": "Body",
+          "type": "RichText",
+          "localized": true,
+          "required": true,
+          "validations": [
+            {
+              "size": {
+                "max": 255
+              }
+            },
+            {
+              "nodes": {
+                "entry-hyperlink": [
+                  {
+                    "linkContentType": [
+                      "adviceCollection",
+                      "adviceUnit",
+                      "circumstantialUnit",
+                      "list"
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "enabledMarks": [
+                "bold"
+              ],
+              "message": "Only bold marks are allowed"
+            },
+            {
+              "enabledNodeTypes": [
+                "hyperlink",
+                "entry-hyperlink"
+              ],
+              "message": "Only link to Url and link to entry nodes are allowed"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "audience",
+          "name": "Audience",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Symbol",
+            "validations": [
+              {
+                "in": [
+                  "England",
+                  "Scotland",
+                  "Wales",
+                  "Welsh language"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "expiryDate",
+          "name": "Expiry date",
+          "type": "Date",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "versionInformation",
+          "name": "Version information",
+          "type": "Text",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "vms0u05139aw"
+          }
+        },
+        "id": "adviserWarning",
+        "type": "ContentType",
+        "createdAt": "2020-02-19T09:48:27.139Z",
+        "updatedAt": "2020-02-19T14:35:18.580Z",
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2020-02-19T14:35:18.580Z",
+        "firstPublishedAt": "2020-02-19T09:48:28.500Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        }
+      },
+      "displayField": "title",
+      "name": "Adviser warning",
+      "description": "A short, important message for advisers about how to use a piece of advice.\n\nAppears on the website as a sticky box attached to the top of the screen.",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "unique": true
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "body",
+          "name": "Body",
+          "type": "RichText",
+          "localized": true,
+          "required": false,
+          "validations": [
+            {
+              "nodes": {
+              }
+            },
+            {
+              "enabledMarks": [
+                "bold",
+                "italic",
+                "underline"
+              ],
+              "message": "Only bold, italic, and underline marks are allowed"
+            },
+            {
+              "enabledNodeTypes": [
+                "hyperlink",
+                "entry-hyperlink",
+                "asset-hyperlink"
+              ],
+              "message": "Only link to Url, link to entry, and link to asset nodes are allowed"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "vms0u05139aw"
+          }
+        },
+        "id": "adviceCollection",
+        "type": "ContentType",
+        "createdAt": "2020-02-19T09:48:27.154Z",
+        "updatedAt": "2020-03-06T11:54:31.313Z",
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 11,
+        "publishedAt": "2020-03-06T11:54:31.313Z",
+        "firstPublishedAt": "2020-02-19T09:48:32.322Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "publishedCounter": 6,
+        "version": 12,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        }
+      },
+      "displayField": "title",
+      "name": "Advice collection - public",
+      "description": "A self-contained piece of advice that answers a definitive user need from start to end. \n\nAppears on the website as a page.",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": true,
+          "required": true,
+          "validations": [
+            {
+              "size": {
+                "min": 5,
+                "max": 150
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "adviserTitle",
+          "name": "Adviser title",
+          "type": "Symbol",
+          "localized": true,
+          "required": false,
+          "validations": [
+            {
+              "unique": true
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "urlEnding",
+          "name": "Url ending",
+          "type": "Symbol",
+          "localized": true,
+          "required": true,
+          "validations": [
+            {
+              "unique": true
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "audience",
+          "name": "Audience",
+          "type": "Array",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Symbol",
+            "validations": [
+              {
+                "in": [
+                  "England",
+                  "Scotland",
+                  "Wales",
+                  "Welsh language"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "body",
+          "name": "Body",
+          "type": "RichText",
+          "localized": true,
+          "required": false,
+          "validations": [
+            {
+              "nodes": {
+                "entry-hyperlink": [
+                  {
+                    "linkContentType": [
+                      "adviceCollectionAdviser",
+                      "adviceCollection",
+                      "adviceList"
+                    ]
+                  }
+                ],
+                "embedded-entry-block": [
+                  {
+                    "linkContentType": [
+                      "calloutAdviser",
+                      "callout",
+                      "contactDetails",
+                      "contentPattern",
+                      "locationSpecificContent",
+                      "table",
+                      "circumstantialUnitAdviser",
+                      "circumstantialUnit",
+                      "templateLetter"
+                    ]
+                  }
+                ],
+                "embedded-entry-inline": [
+                  {
+                    "linkContentType": [
+                      "contactDetails",
+                      "contentPattern",
+                      "legislationLink",
+                      "amount"
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "enabledNodeTypes": [
+                "heading-2",
+                "heading-3",
+                "heading-4",
+                "ordered-list",
+                "unordered-list",
+                "hr",
+                "blockquote",
+                "embedded-entry-block",
+                "embedded-asset-block",
+                "hyperlink",
+                "entry-hyperlink",
+                "asset-hyperlink",
+                "embedded-entry-inline"
+              ],
+              "message": "Only heading 2, heading 3, heading 4, ordered list, unordered list, horizontal rule, quote, block entry, asset, link to Url, link to entry, link to asset, and inline entry nodes are allowed"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "metaDescription",
+          "name": "Meta Description",
+          "type": "Text",
+          "localized": true,
+          "required": true,
+          "validations": [
+            {
+              "size": {
+                "min": 70,
+                "max": 250
+              },
+              "message": "Please make this at least 70 characters so Google reads it, and less than 250 characters, so it's easy to skim on a search results page"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "adviserMetaDescription",
+          "name": "Adviser meta description",
+          "type": "Text",
+          "localized": true,
+          "required": false,
+          "validations": [
+            {
+              "size": {
+                "max": 250
+              },
+              "message": "Please make this less than 250 characters, so it's easy to skim on a search results page"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "lastAccuracyReview",
+          "name": "Last accuracy review",
+          "type": "Date",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "classificationNumber",
+          "name": "Classification number",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "unique": true
+            },
+            {
+              "regexp": {
+                "pattern": "^(?:\\d{1,3}\\.){4}$",
+                "flags": null
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "childContent",
+          "name": "Child content",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": [
+                  "adviceCollectionAdviser",
+                  "adviceCollection",
+                  "adviceList"
+                ]
+              }
+            ],
+            "linkType": "Entry"
+          }
+        },
+        {
+          "id": "relatedCollections",
+          "name": "Related collections",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": [
+                  "adviceCollectionAdviser",
+                  "adviceCollection"
+                ]
+              }
+            ],
+            "linkType": "Entry"
+          }
+        },
+        {
+          "id": "banner",
+          "name": "Banner",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "banner"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "versionInformation",
+          "name": "Version information",
+          "type": "Text",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "startTaskList",
+          "name": "Start of task list?",
+          "type": "Boolean",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "onlineChatCategory",
+          "name": "Online chat category",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "in": [
+                "Standard chat",
+                "Universal Credit",
+                "Help to Claim contact page",
+                "Scams",
+                "Scams landing page",
+                "Consumer",
+                "Contact us page",
+                "Chat training"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "hideFromSearchEngines",
+          "name": "Hide from search engines?",
+          "type": "Boolean",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "vms0u05139aw"
+          }
+        },
+        "id": "amount",
+        "type": "ContentType",
+        "createdAt": "2020-02-19T09:48:27.199Z",
+        "updatedAt": "2020-02-19T14:35:19.080Z",
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2020-02-19T14:35:19.080Z",
+        "firstPublishedAt": "2020-02-19T09:48:31.468Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        }
+      },
+      "displayField": "title",
+      "name": "Monetary amount",
+      "description": "A number that will appear as a value in pounds on the website. Use for things like benefit rates and tax thresholds.",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "unique": true
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "amount",
+          "name": "Amount",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "regexp": {
+                "pattern": "^£\\d+(\\.\\d{2})?$",
+                "flags": null
+              },
+              "message": "Please enter an amount in pounds, with a £ in front"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "versionInformation",
+          "name": "Version information",
+          "type": "Text",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "vms0u05139aw"
+          }
+        },
+        "id": "callout",
+        "type": "ContentType",
+        "createdAt": "2020-02-19T09:48:27.269Z",
+        "updatedAt": "2020-03-04T11:21:58.973Z",
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 7,
+        "publishedAt": "2020-03-04T11:21:58.973Z",
+        "firstPublishedAt": "2020-02-19T09:48:32.745Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "publishedCounter": 4,
+        "version": 8,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        }
+      },
+      "displayField": "title",
+      "name": "Callout",
+      "description": "Additional information connected to a larger piece of advice. Can be urgent (a red box on the website), standard (a yellow box on the website), or an example (a white box on the website). Can be used in public or adviser content.",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "size": {
+                "min": 5,
+                "max": 150
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "audience",
+          "name": "Audience",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Symbol",
+            "validations": [
+              {
+                "in": [
+                  "England",
+                  "Scotland",
+                  "Wales",
+                  "Welsh language"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "body",
+          "name": "Body",
+          "type": "RichText",
+          "localized": true,
+          "required": false,
+          "validations": [
+            {
+              "nodes": {
+                "entry-hyperlink": [
+                  {
+                    "linkContentType": [
+                      "adviceCollectionAdviser",
+                      "adviceCollection",
+                      "adviceList"
+                    ]
+                  }
+                ],
+                "embedded-entry-block": [
+                  {
+                    "linkContentType": [
+                      "callout",
+                      "calloutAdviser",
+                      "contactDetails",
+                      "contentPattern",
+                      "locationSpecificContent",
+                      "table",
+                      "targetedContent",
+                      "targetedContentAdviser",
+                      "templateLetter"
+                    ]
+                  }
+                ],
+                "embedded-entry-inline": [
+                  {
+                    "linkContentType": [
+                      "contactDetails",
+                      "contentPattern",
+                      "legislationLink",
+                      "amount"
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "enabledNodeTypes": [
+                "heading-2",
+                "heading-3",
+                "heading-4",
+                "ordered-list",
+                "unordered-list",
+                "hr",
+                "blockquote",
+                "embedded-entry-block",
+                "embedded-asset-block",
+                "hyperlink",
+                "entry-hyperlink",
+                "asset-hyperlink",
+                "embedded-entry-inline"
+              ],
+              "message": "Only heading 2, heading 3, heading 4, ordered list, unordered list, horizontal rule, quote, block entry, asset, link to Url, link to entry, link to asset, and inline entry nodes are allowed"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "type",
+          "name": "Type",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "in": [
+                "Standard",
+                "Urgent",
+                "Example"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "versionInformation",
+          "name": "Version information",
+          "type": "Text",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "vms0u05139aw"
+          }
+        },
+        "id": "contactDetails",
+        "type": "ContentType",
+        "createdAt": "2020-02-19T09:48:27.329Z",
+        "updatedAt": "2020-02-19T14:35:21.581Z",
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2020-02-19T14:35:21.581Z",
+        "firstPublishedAt": "2020-02-19T09:48:33.078Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        }
+      },
+      "displayField": "title",
+      "name": "Contact details",
+      "description": "An address, website, email address or phone number for an organisation or service. ",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "size": {
+                "min": 5,
+                "max": 150
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "audience",
+          "name": "Audience",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Symbol",
+            "validations": [
+              {
+                "in": [
+                  "England",
+                  "Scotland",
+                  "Wales",
+                  "Welsh language"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "body",
+          "name": "Body",
+          "type": "RichText",
+          "localized": true,
+          "required": false,
+          "validations": [
+            {
+              "nodes": {
+                "entry-hyperlink": [
+                  {
+                    "linkContentType": [
+                      "adviceCollection",
+                      "adviceUnit",
+                      "circumstantialUnit",
+                      "list"
+                    ]
+                  }
+                ],
+                "embedded-entry-block": [
+                  {
+                    "linkContentType": [
+                      "callCosts"
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "enabledNodeTypes": [
+                "unordered-list",
+                "blockquote",
+                "heading-2",
+                "heading-3",
+                "heading-4",
+                "ordered-list",
+                "hr",
+                "hyperlink",
+                "embedded-entry-block",
+                "entry-hyperlink"
+              ],
+              "message": "Only unordered list, quote, heading 2, heading 3, heading 4, ordered list, horizontal rule, link to Url, block entry, and link to entry nodes are allowed"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "vms0u05139aw"
+          }
+        },
+        "id": "locationSpecificContent",
+        "type": "ContentType",
+        "createdAt": "2020-02-19T09:48:27.606Z",
+        "updatedAt": "2020-03-04T11:23:20.928Z",
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 25,
+        "publishedAt": "2020-03-04T11:23:20.928Z",
+        "firstPublishedAt": "2020-02-19T09:48:29.615Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "publishedCounter": 13,
+        "version": 26,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        }
+      },
+      "displayField": "title",
+      "name": "Location-specific content",
+      "description": "Part of a piece of content that's for a different combination of England, Scotland and Wales. For example, can be used as an 'extent box' in a public or adviser collection, callout, or anywhere else.",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "audience",
+          "name": "Audience",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Symbol",
+            "validations": [
+              {
+                "in": [
+                  "England",
+                  "Scotland",
+                  "Wales",
+                  "Welsh language"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "body",
+          "name": "Body",
+          "type": "RichText",
+          "localized": true,
+          "required": false,
+          "validations": [
+            {
+              "nodes": {
+                "entry-hyperlink": [
+                  {
+                    "linkContentType": [
+                      "adviceCollectionAdviser",
+                      "adviceCollection",
+                      "adviceList"
+                    ]
+                  }
+                ],
+                "embedded-entry-block": [
+                  {
+                    "linkContentType": [
+                      "callout",
+                      "calloutAdviser",
+                      "contactDetails",
+                      "contentPattern",
+                      "table",
+                      "targetedContent",
+                      "targetedContentAdviser",
+                      "templateLetter"
+                    ]
+                  }
+                ],
+                "embedded-entry-inline": [
+                  {
+                    "linkContentType": [
+                      "contactDetails",
+                      "contentPattern",
+                      "legislationLink",
+                      "amount"
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "enabledNodeTypes": [
+                "heading-2",
+                "heading-3",
+                "heading-4",
+                "ordered-list",
+                "unordered-list",
+                "hr",
+                "blockquote",
+                "embedded-entry-block",
+                "embedded-asset-block",
+                "hyperlink",
+                "entry-hyperlink",
+                "asset-hyperlink",
+                "embedded-entry-inline"
+              ],
+              "message": "Only heading 2, heading 3, heading 4, ordered list, unordered list, horizontal rule, quote, block entry, asset, link to Url, link to entry, link to asset, and inline entry nodes are allowed"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "vms0u05139aw"
+          }
+        },
+        "id": "calloutAdviser",
+        "type": "ContentType",
+        "createdAt": "2020-02-19T09:48:27.624Z",
+        "updatedAt": "2020-03-04T11:22:14.983Z",
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 5,
+        "publishedAt": "2020-03-04T11:22:14.983Z",
+        "firstPublishedAt": "2020-02-19T09:48:29.089Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "publishedCounter": 3,
+        "version": 6,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        }
+      },
+      "displayField": "title",
+      "name": "Callout - adviser",
+      "description": "Put this within an advice collection to include extra detail that's only relevant to advisers. On the website, appears as an adviser box, only visible to advisers.",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "size": {
+                "min": 5,
+                "max": 150
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "audience",
+          "name": "Audience",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Symbol",
+            "validations": [
+              {
+                "in": [
+                  "England",
+                  "Scotland",
+                  "Wales",
+                  "Welsh language"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "body",
+          "name": "Body",
+          "type": "RichText",
+          "localized": true,
+          "required": false,
+          "validations": [
+            {
+              "nodes": {
+                "entry-hyperlink": [
+                  {
+                    "linkContentType": [
+                      "adviceCollectionAdviser",
+                      "adviceCollection",
+                      "adviceList"
+                    ]
+                  }
+                ],
+                "embedded-entry-block": [
+                  {
+                    "linkContentType": [
+                      "callout",
+                      "calloutAdviser",
+                      "contactDetails",
+                      "contentPattern",
+                      "locationSpecificContent",
+                      "table",
+                      "targetedContent",
+                      "targetedContentAdviser"
+                    ]
+                  }
+                ],
+                "embedded-entry-inline": [
+                  {
+                    "linkContentType": [
+                      "contactDetails",
+                      "contentPattern",
+                      "legislationLink",
+                      "amount"
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "enabledNodeTypes": [
+                "heading-2",
+                "heading-3",
+                "heading-4",
+                "ordered-list",
+                "unordered-list",
+                "hr",
+                "blockquote",
+                "embedded-entry-block",
+                "embedded-asset-block",
+                "hyperlink",
+                "entry-hyperlink",
+                "asset-hyperlink",
+                "embedded-entry-inline"
+              ],
+              "message": "Only heading 2, heading 3, heading 4, ordered list, unordered list, horizontal rule, quote, block entry, asset, link to Url, link to entry, link to asset, and inline entry nodes are allowed"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "versionInformation",
+          "name": "Version information",
+          "type": "Text",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "vms0u05139aw"
+          }
+        },
+        "id": "contentPattern",
+        "type": "ContentType",
+        "createdAt": "2020-02-19T09:48:27.639Z",
+        "updatedAt": "2020-03-04T11:22:46.433Z",
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 5,
+        "publishedAt": "2020-03-04T11:22:46.433Z",
+        "firstPublishedAt": "2020-02-19T09:48:28.782Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "publishedCounter": 3,
+        "version": 6,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        }
+      },
+      "displayField": "title",
+      "name": "Content pattern",
+      "description": "Premade sentences and paragraphs we reuse across the site",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "unique": true
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "body",
+          "name": "Body",
+          "type": "RichText",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "nodes": {
+                "entry-hyperlink": [
+                  {
+                    "linkContentType": [
+                      "adviceCollectionAdviser",
+                      "adviceCollection",
+                      "adviceList"
+                    ]
+                  }
+                ],
+                "embedded-entry-block": [
+                  {
+                    "linkContentType": [
+                      "callout",
+                      "calloutAdviser",
+                      "contactDetails",
+                      "contentPattern",
+                      "table",
+                      "targetedContent",
+                      "targetedContentAdviser",
+                      "templateLetter"
+                    ]
+                  }
+                ],
+                "embedded-entry-inline": [
+                  {
+                    "linkContentType": [
+                      "contentPattern",
+                      "legislationLink",
+                      "amount"
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "enabledMarks": [
+                "bold",
+                "italic",
+                "underline"
+              ],
+              "message": "Only bold, italic, and underline marks are allowed"
+            },
+            {
+              "enabledNodeTypes": [
+                "heading-2",
+                "heading-3",
+                "heading-4",
+                "heading-5",
+                "heading-6",
+                "ordered-list",
+                "unordered-list",
+                "blockquote",
+                "embedded-entry-block",
+                "embedded-asset-block",
+                "hyperlink",
+                "entry-hyperlink",
+                "asset-hyperlink",
+                "embedded-entry-inline"
+              ],
+              "message": "Only heading 2, heading 3, heading 4, heading 5, heading 6, ordered list, unordered list, quote, block entry, asset, link to Url, link to entry, link to asset, and inline entry nodes are allowed"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "versionInformation",
+          "name": "Version information",
+          "type": "Text",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "vms0u05139aw"
+          }
+        },
+        "id": "targetedContentAdviser",
+        "type": "ContentType",
+        "createdAt": "2020-02-19T09:48:27.693Z",
+        "updatedAt": "2020-02-19T14:35:14.362Z",
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2020-02-19T14:35:14.362Z",
+        "firstPublishedAt": "2020-02-19T09:48:30.101Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        }
+      },
+      "displayField": "title",
+      "name": "Targeted content - adviser",
+      "description": "A piece of advice for a specific type of user. Appears as an adviser-only revealable on the website. ",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": true,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "audience",
+          "name": "Audience",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Symbol",
+            "validations": [
+              {
+                "in": [
+                  "England",
+                  "Scotland",
+                  "Wales",
+                  "Welsh language"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "body",
+          "name": "Body",
+          "type": "RichText",
+          "localized": true,
+          "required": false,
+          "validations": [
+            {
+              "nodes": {
+                "entry-hyperlink": [
+                  {
+                    "linkContentType": [
+                      "adviceCollectionAdviser",
+                      "adviceCollection",
+                      "adviceList"
+                    ]
+                  }
+                ],
+                "embedded-entry-block": [
+                  {
+                    "linkContentType": [
+                      "calloutAdviser",
+                      "callout",
+                      "contactDetails",
+                      "contentPattern",
+                      "locationSpecificContent",
+                      "table",
+                      "circumstantialUnitAdviser",
+                      "circumstantialUnit"
+                    ]
+                  }
+                ],
+                "embedded-entry-inline": [
+                  {
+                    "linkContentType": [
+                      "contactDetails",
+                      "contentPattern",
+                      "legislationLink",
+                      "amount"
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "enabledNodeTypes": [
+                "heading-2",
+                "heading-3",
+                "heading-4",
+                "ordered-list",
+                "unordered-list",
+                "hr",
+                "blockquote",
+                "embedded-entry-block",
+                "embedded-asset-block",
+                "hyperlink",
+                "entry-hyperlink",
+                "asset-hyperlink",
+                "embedded-entry-inline"
+              ],
+              "message": "Only heading 2, heading 3, heading 4, ordered list, unordered list, horizontal rule, quote, block entry, asset, link to Url, link to entry, link to asset, and inline entry nodes are allowed"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "versionInformation",
+          "name": "Version information",
+          "type": "Text",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "vms0u05139aw"
+          }
+        },
+        "id": "table",
+        "type": "ContentType",
+        "createdAt": "2020-02-19T09:48:27.718Z",
+        "updatedAt": "2020-02-19T15:54:03.291Z",
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 5,
+        "publishedAt": "2020-02-19T15:54:03.291Z",
+        "firstPublishedAt": "2020-02-19T09:48:30.423Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "0QPlxDqibRPf0bV7VmxsJW"
+          }
+        },
+        "publishedCounter": 3,
+        "version": 6,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "0QPlxDqibRPf0bV7VmxsJW"
+          }
+        }
+      },
+      "displayField": "title",
+      "name": "Table",
+      "description": "Add a table",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "body",
+          "name": "Body",
+          "type": "Object",
+          "localized": true,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "audience",
+          "name": "Audience",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Symbol",
+            "validations": [
+              {
+                "in": [
+                  "England",
+                  "Scotland",
+                  "Wales",
+                  "Welsh language"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "vms0u05139aw"
+          }
+        },
+        "id": "backgroundText",
+        "type": "ContentType",
+        "createdAt": "2020-02-19T09:48:27.754Z",
+        "updatedAt": "2020-02-19T14:35:16.773Z",
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2020-02-19T14:35:16.773Z",
+        "firstPublishedAt": "2020-02-19T09:48:29.361Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        }
+      },
+      "displayField": "title",
+      "name": "Background text",
+      "description": "Text that appears in the background, in occasional messages or in other incidental locations. For example, footers, search messages and errors.",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "body",
+          "name": "Body",
+          "type": "RichText",
+          "localized": true,
+          "required": false,
+          "validations": [
+            {
+              "nodes": {
+                "entry-hyperlink": [
+                  {
+                    "linkContentType": [
+                      "adviceCollectionAdviser",
+                      "adviceCollection",
+                      "adviceList"
+                    ]
+                  }
+                ],
+                "embedded-entry-block": [
+                  {
+                    "linkContentType": [
+                      "backgroundText",
+                      "calloutAdviser",
+                      "callout",
+                      "contactDetails",
+                      "contentPattern",
+                      "locationSpecificContent",
+                      "table",
+                      "circumstantialUnitAdviser",
+                      "circumstantialUnit",
+                      "templateLetter"
+                    ]
+                  }
+                ],
+                "embedded-entry-inline": [
+                  {
+                    "linkContentType": [
+                      "contactDetails",
+                      "contentPattern",
+                      "amount"
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "enabledMarks": [
+                "bold",
+                "italic",
+                "underline"
+              ],
+              "message": "Only bold, italic, and underline marks are allowed"
+            },
+            {
+              "enabledNodeTypes": [
+                "heading-2",
+                "heading-3",
+                "heading-4",
+                "hyperlink",
+                "entry-hyperlink",
+                "embedded-asset-block",
+                "unordered-list",
+                "ordered-list",
+                "embedded-entry-block",
+                "embedded-entry-inline"
+              ],
+              "message": "Only heading 2, heading 3, heading 4, link to Url, link to entry, asset, unordered list, ordered list, block entry, and inline entry nodes are allowed"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "versionInformation",
+          "name": "Version information",
+          "type": "Text",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "vms0u05139aw"
+          }
+        },
+        "id": "adviceList",
+        "type": "ContentType",
+        "createdAt": "2020-02-19T09:48:28.152Z",
+        "updatedAt": "2020-03-03T10:53:21.629Z",
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 11,
+        "publishedAt": "2020-03-03T10:53:21.629Z",
+        "firstPublishedAt": "2020-02-19T09:48:31.062Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "publishedCounter": 6,
+        "version": 12,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        }
+      },
+      "displayField": "title",
+      "name": "Advice list",
+      "description": "A curated group of advice collections on a particular theme. ",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": true,
+          "required": true,
+          "validations": [
+            {
+              "size": {
+                "min": 5,
+                "max": 150
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "urlEnding",
+          "name": "Url ending",
+          "type": "Symbol",
+          "localized": true,
+          "required": true,
+          "validations": [
+            {
+              "unique": true
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "audience",
+          "name": "Audience",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Symbol",
+            "validations": [
+              {
+                "in": [
+                  "England",
+                  "Scotland",
+                  "Wales",
+                  "Welsh language"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "body",
+          "name": "Body",
+          "type": "RichText",
+          "localized": true,
+          "required": false,
+          "validations": [
+            {
+              "nodes": {
+              }
+            },
+            {
+              "enabledNodeTypes": [
+                "ordered-list",
+                "unordered-list",
+                "hr",
+                "blockquote",
+                "hyperlink",
+                "entry-hyperlink",
+                "asset-hyperlink"
+              ],
+              "message": "Only ordered list, unordered list, horizontal rule, quote, link to Url, link to entry, and link to asset nodes are allowed"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "childContent",
+          "name": "Child content",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": [
+                  "adviceCollectionAdviser",
+                  "adviceCollection",
+                  "adviceList"
+                ]
+              }
+            ],
+            "linkType": "Entry"
+          }
+        },
+        {
+          "id": "listStyle",
+          "name": "List style",
+          "type": "Boolean",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "metaDescription",
+          "name": "Meta description",
+          "type": "Text",
+          "localized": true,
+          "required": true,
+          "validations": [
+            {
+              "size": {
+                "min": 70,
+                "max": 250
+              },
+              "message": "Please make this at least 70 characters so Google reads it, and less than 250 characters, so it's easy to skim on a search results page"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "adviserMetaDescription",
+          "name": "Adviser meta description",
+          "type": "Text",
+          "localized": true,
+          "required": false,
+          "validations": [
+            {
+              "size": {
+                "max": 250
+              },
+              "message": "Please make this less than 250 characters, so it's easy to skim on a search results page"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "banner",
+          "name": "Banner",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "banner"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "versionInformation",
+          "name": "Version information",
+          "type": "Text",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "onlineChatCategory",
+          "name": "Online chat category",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "in": [
+                "Standard chat",
+                "No chat",
+                "Universal Credit",
+                "Help to Claim contact page",
+                "Debt",
+                "Debt - Northern Ireland",
+                "Scams",
+                "Scams landing page",
+                "Consumer",
+                "Consumer - contact us",
+                "Contact us page",
+                "Chat training"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "hideFromSearchEngines",
+          "name": "Hide from search engines?",
+          "type": "Boolean",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "vms0u05139aw"
+          }
+        },
+        "id": "callCosts",
+        "type": "ContentType",
+        "createdAt": "2020-02-19T14:35:10.437Z",
+        "updatedAt": "2020-02-19T14:35:20.683Z",
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2020-02-19T14:35:20.683Z",
+        "firstPublishedAt": "2020-02-19T14:35:20.683Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        }
+      },
+      "displayField": "title",
+      "name": "Call costs",
+      "description": "NOT YET FINALISED. Standard blocks of text explaining the costs of different calling different numbers. ",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "body",
+          "name": "Body",
+          "type": "RichText",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "nodes": {
+              }
+            },
+            {
+              "enabledMarks": [
+                "bold"
+              ],
+              "message": "Only bold marks are allowed"
+            },
+            {
+              "enabledNodeTypes": [
+                "embedded-entry-inline",
+                "embedded-entry-block"
+              ],
+              "message": "Only inline entry and block entry nodes are allowed"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "vms0u05139aw"
+          }
+        },
+        "id": "topic",
+        "type": "ContentType",
+        "createdAt": "2020-02-19T14:35:10.484Z",
+        "updatedAt": "2020-02-19T14:35:21.292Z",
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2020-02-19T14:35:21.292Z",
+        "firstPublishedAt": "2020-02-19T14:35:21.292Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        }
+      },
+      "displayField": "topic",
+      "name": "Topic",
+      "description": "NOT YET FINALISED Taxonomy entries for broad advice areas",
+      "fields": [
+        {
+          "id": "topic",
+          "name": "Public name",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "unique": true
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "adviserName",
+          "name": "Adviser name",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "unique": true
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "synonyms",
+          "name": "Synonyms",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Symbol",
+            "validations": [
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "vms0u05139aw"
+          }
+        },
+        "id": "testType",
+        "type": "ContentType",
+        "createdAt": "2020-02-19T14:35:10.819Z",
+        "updatedAt": "2020-02-19T14:35:13.909Z",
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2020-02-19T14:35:13.909Z",
+        "firstPublishedAt": "2020-02-19T14:35:13.909Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        }
+      },
+      "displayField": "title",
+      "name": "Test type",
+      "description": "NOT YET FINALISED",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "body",
+          "name": "Body",
+          "type": "RichText",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "nodes": {
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "vms0u05139aw"
+          }
+        },
+        "id": "adviceCollectionAdviser",
+        "type": "ContentType",
+        "createdAt": "2020-02-19T14:35:10.852Z",
+        "updatedAt": "2020-03-04T11:21:16.428Z",
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2020-03-04T11:21:16.428Z",
+        "firstPublishedAt": "2020-02-19T14:35:15.396Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        }
+      },
+      "displayField": "title",
+      "name": "Advice collection - adviser",
+      "description": "NOT YET FINALISED - WAITING TILL AFTER PUBLIC DONE. ",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": true,
+          "required": true,
+          "validations": [
+            {
+              "unique": true
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "urlEnding",
+          "name": "Url ending",
+          "type": "Symbol",
+          "localized": true,
+          "required": true,
+          "validations": [
+            {
+              "unique": true
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "audience",
+          "name": "Audience",
+          "type": "Array",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Symbol",
+            "validations": [
+              {
+                "in": [
+                  "England",
+                  "Scotland",
+                  "Wales",
+                  "Welsh language"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "body",
+          "name": "Body",
+          "type": "RichText",
+          "localized": true,
+          "required": false,
+          "validations": [
+            {
+              "nodes": {
+                "entry-hyperlink": [
+                  {
+                    "linkContentType": [
+                      "adviceCollectionAdviser",
+                      "adviceCollection",
+                      "adviceList"
+                    ]
+                  }
+                ],
+                "embedded-entry-block": [
+                  {
+                    "linkContentType": [
+                      "callout",
+                      "calloutAdviser",
+                      "contactDetails",
+                      "contentPattern",
+                      "locationSpecificContent",
+                      "table",
+                      "targetedContent",
+                      "targetedContentAdviser",
+                      "templateLetter"
+                    ]
+                  }
+                ],
+                "embedded-entry-inline": [
+                  {
+                    "linkContentType": [
+                      "amount",
+                      "contentPattern",
+                      "legislationLink"
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "enabledNodeTypes": [
+                "heading-2",
+                "heading-3",
+                "heading-4",
+                "ordered-list",
+                "unordered-list",
+                "hr",
+                "blockquote",
+                "embedded-entry-block",
+                "embedded-asset-block",
+                "hyperlink",
+                "entry-hyperlink",
+                "asset-hyperlink",
+                "embedded-entry-inline"
+              ],
+              "message": "Only heading 2, heading 3, heading 4, ordered list, unordered list, horizontal rule, quote, block entry, asset, link to Url, link to entry, link to asset, and inline entry nodes are allowed"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "lastAccuracyReview",
+          "name": "Last accuracy review",
+          "type": "Date",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "banner",
+          "name": "Banner",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "banner"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "equivalentPublicCollection",
+          "name": "Equivalent public collection",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "adviceCollection"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "startOfTaskList",
+          "name": "Start of task list?",
+          "type": "Boolean",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "versionInformation",
+          "name": "Version information",
+          "type": "Text",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "vms0u05139aw"
+          }
+        },
+        "id": "templateLetterQuestion",
+        "type": "ContentType",
+        "createdAt": "2020-02-19T14:35:12.581Z",
+        "updatedAt": "2020-02-24T14:46:43.348Z",
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 13,
+        "publishedAt": "2020-02-24T14:46:43.348Z",
+        "firstPublishedAt": "2020-02-19T14:35:15.701Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "publishedCounter": 7,
+        "version": 14,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        }
+      },
+      "displayField": "questionTitle",
+      "name": "Template letter question",
+      "description": "NOT YET FINALISED A question that we ask a user to prompt them to input a response. The response is used to construct a letter",
+      "fields": [
+        {
+          "id": "questionTitle",
+          "name": "Question title",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "questionHelpText",
+          "name": "Question help text",
+          "type": "RichText",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "userInputType",
+          "name": "User input type",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "in": [
+                "Short Text",
+                "Long text",
+                "Date",
+                "Choose from options"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "optionsForThisQuestion",
+          "name": "Options for this question",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Symbol",
+            "validations": [
+            ]
+          }
+        },
+        {
+          "id": "required",
+          "name": "Required",
+          "type": "Boolean",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "exampleText",
+          "name": "Example text",
+          "type": "Text",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "vms0u05139aw"
+          }
+        },
+        "id": "tag",
+        "type": "ContentType",
+        "createdAt": "2020-02-19T14:35:12.842Z",
+        "updatedAt": "2020-02-19T14:35:16.510Z",
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2020-02-19T14:35:16.510Z",
+        "firstPublishedAt": "2020-02-19T14:35:16.510Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        }
+      },
+      "displayField": "name",
+      "name": "Tag",
+      "description": "NOT YET FINALISED These are just to help us find things in the CMS. Create and apply whatever tags you need to help you group your content. ",
+      "fields": [
+        {
+          "id": "name",
+          "name": "Name",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "unique": true
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "vms0u05139aw"
+          }
+        },
+        "id": "templateLetter",
+        "type": "ContentType",
+        "createdAt": "2020-02-19T14:35:12.860Z",
+        "updatedAt": "2020-02-19T14:35:16.105Z",
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2020-02-19T14:35:16.105Z",
+        "firstPublishedAt": "2020-02-19T14:35:16.105Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        }
+      },
+      "displayField": "letterTitle",
+      "name": "Template letter",
+      "description": "NOT YET FINALISED A way for users to create a correctly formatted letter to help with a number of problems.",
+      "fields": [
+        {
+          "id": "letterTitle",
+          "name": "Letter title",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "exampleLetter",
+          "name": "Example letter",
+          "type": "RichText",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "nodes": {
+                "embedded-entry-inline": [
+                  {
+                    "linkContentType": [
+                      "templateLetterQuestion"
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "enabledNodeTypes": [
+                "heading-3",
+                "heading-4",
+                "heading-5",
+                "heading-6",
+                "ordered-list",
+                "unordered-list",
+                "hr",
+                "blockquote",
+                "embedded-entry-block",
+                "embedded-asset-block",
+                "hyperlink",
+                "entry-hyperlink",
+                "asset-hyperlink",
+                "embedded-entry-inline"
+              ],
+              "message": "Only heading 3, heading 4, heading 5, heading 6, ordered list, unordered list, horizontal rule, quote, block entry, asset, link to Url, link to entry, link to asset, and inline entry nodes are allowed"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "userQuestions",
+          "name": "User questions order",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": [
+                  "templateLetterQuestion"
+                ]
+              }
+            ],
+            "linkType": "Entry"
+          }
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "vms0u05139aw"
+          }
+        },
+        "id": "legislationLink",
+        "type": "ContentType",
+        "createdAt": "2020-02-19T14:35:12.861Z",
+        "updatedAt": "2020-02-19T14:35:18.803Z",
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2020-02-19T14:35:18.803Z",
+        "firstPublishedAt": "2020-02-19T14:35:18.803Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        }
+      },
+      "displayField": "title",
+      "name": "Legislation link",
+      "description": "NOT YET FINALISED Experimental: a link to some legislation and legal context explaining what it says.",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "unique": true
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "url",
+          "name": "Url",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "regexp": {
+                "pattern": "^(ftp|http|https):\\/\\/(\\w+:{0,1}\\w*@)?(\\S+)(:[0-9]+)?(\\/|\\/([\\w#!:.?+=&%@!\\-\\/]))?$"
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "legalContext",
+          "name": "Legal context",
+          "type": "RichText",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "nodes": {
+              }
+            },
+            {
+              "enabledNodeTypes": [
+                "heading-2",
+                "heading-3",
+                "heading-4",
+                "heading-5",
+                "heading-6",
+                "ordered-list",
+                "unordered-list",
+                "hr",
+                "blockquote",
+                "hyperlink",
+                "entry-hyperlink",
+                "asset-hyperlink"
+              ],
+              "message": "Only heading 2, heading 3, heading 4, heading 5, heading 6, ordered list, unordered list, horizontal rule, quote, link to Url, link to entry, and link to asset nodes are allowed"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "vms0u05139aw"
+          }
+        },
+        "id": "resultPage",
+        "type": "ContentType",
+        "createdAt": "2020-02-19T14:35:13.028Z",
+        "updatedAt": "2020-02-19T14:35:19.461Z",
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2020-02-19T14:35:19.461Z",
+        "firstPublishedAt": "2020-02-19T14:35:19.461Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        }
+      },
+      "displayField": "resultName",
+      "name": "Tool - result",
+      "description": "NOT YET FINALISED",
+      "fields": [
+        {
+          "id": "resultName",
+          "name": "Result name",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "resultText",
+          "name": "Result text",
+          "type": "RichText",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "vms0u05139aw"
+          }
+        },
+        "id": "answer",
+        "type": "ContentType",
+        "createdAt": "2020-02-19T14:35:13.102Z",
+        "updatedAt": "2020-02-19T14:35:19.694Z",
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2020-02-19T14:35:19.694Z",
+        "firstPublishedAt": "2020-02-19T14:35:19.694Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        }
+      },
+      "displayField": "answerText",
+      "name": "Tool - answer",
+      "description": "NOT YET FINALISED",
+      "fields": [
+        {
+          "id": "answerText",
+          "name": "Answer text",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "tool",
+          "name": "Tool",
+          "type": "Link",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "linkContentType": [
+                "tool"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "nextQuestionOrResults",
+          "name": "Next question or results",
+          "type": "Link",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "linkContentType": [
+                "question",
+                "resultPage"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "vms0u05139aw"
+          }
+        },
+        "id": "question",
+        "type": "ContentType",
+        "createdAt": "2020-02-19T14:35:13.109Z",
+        "updatedAt": "2020-02-19T14:35:19.958Z",
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2020-02-19T14:35:19.958Z",
+        "firstPublishedAt": "2020-02-19T14:35:19.958Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        }
+      },
+      "displayField": "questionText",
+      "name": "Tool - question",
+      "description": "NOT YET FINALISED",
+      "fields": [
+        {
+          "id": "questionText",
+          "name": "Question text",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "tool",
+          "name": "Tool",
+          "type": "Link",
+          "localized": false,
+          "required": true,
+          "validations": [
+            {
+              "linkContentType": [
+                "tool"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "answerOptions",
+          "name": "Answer options",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": [
+                  "answer"
+                ]
+              }
+            ],
+            "linkType": "Entry"
+          }
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "vms0u05139aw"
+          }
+        },
+        "id": "tool",
+        "type": "ContentType",
+        "createdAt": "2020-02-19T14:35:13.125Z",
+        "updatedAt": "2020-02-19T14:35:20.248Z",
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 1,
+        "publishedAt": "2020-02-19T14:35:20.248Z",
+        "firstPublishedAt": "2020-02-19T14:35:20.248Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "publishedCounter": 1,
+        "version": 2,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        }
+      },
+      "displayField": "title",
+      "name": "Tool - start",
+      "description": "NOT YET FINALISED",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": false,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "body",
+          "name": "Body",
+          "type": "RichText",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "nodes": {
+                "embedded-entry-block": [
+                  {
+                    "linkContentType": [
+                      "adviceUnitAdviser",
+                      "adviceUnit",
+                      "callout",
+                      "circumstantialUnit",
+                      "contactDetails"
+                    ]
+                  }
+                ],
+                "embedded-entry-inline": [
+                  {
+                    "linkContentType": [
+                      "amount",
+                      "legislationLink"
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "enabledNodeTypes": [
+                "heading-2",
+                "heading-3",
+                "heading-4",
+                "heading-5",
+                "heading-6",
+                "ordered-list",
+                "unordered-list",
+                "hr",
+                "blockquote",
+                "embedded-entry-block",
+                "embedded-asset-block",
+                "hyperlink",
+                "entry-hyperlink",
+                "asset-hyperlink",
+                "embedded-entry-inline"
+              ],
+              "message": "Only heading 2, heading 3, heading 4, heading 5, heading 6, ordered list, unordered list, horizontal rule, quote, block entry, asset, link to Url, link to entry, link to asset, and inline entry nodes are allowed"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "startingQuestion",
+          "name": "Starting question",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "question"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "vms0u05139aw"
+          }
+        },
+        "id": "targetedContent",
+        "type": "ContentType",
+        "createdAt": "2020-02-19T15:44:15.848Z",
+        "updatedAt": "2020-03-04T11:23:58.288Z",
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 3,
+        "publishedAt": "2020-03-04T11:23:58.288Z",
+        "firstPublishedAt": "2020-02-19T15:44:16.419Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "publishedCounter": 2,
+        "version": 4,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        }
+      },
+      "displayField": "title",
+      "name": "Targeted content",
+      "description": "A piece of advice for a specific type of user. Appears as a revealable on the website. ",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": true,
+          "required": true,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "adviserTitle",
+          "name": "Adviser title",
+          "type": "Symbol",
+          "localized": true,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "audience",
+          "name": "Audience",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Symbol",
+            "validations": [
+              {
+                "in": [
+                  "England",
+                  "Scotland",
+                  "Wales",
+                  "Welsh language"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "body",
+          "name": "Body",
+          "type": "RichText",
+          "localized": true,
+          "required": false,
+          "validations": [
+            {
+              "nodes": {
+                "entry-hyperlink": [
+                  {
+                    "linkContentType": [
+                      "adviceCollection",
+                      "list"
+                    ]
+                  }
+                ],
+                "embedded-entry-block": [
+                  {
+                    "linkContentType": [
+                      "callout",
+                      "calloutAdviser",
+                      "contactDetails",
+                      "locationSpecificContent",
+                      "table"
+                    ]
+                  }
+                ],
+                "embedded-entry-inline": [
+                  {
+                    "linkContentType": [
+                      "amount",
+                      "legislationLink"
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "enabledNodeTypes": [
+                "heading-2",
+                "heading-3",
+                "heading-4",
+                "ordered-list",
+                "unordered-list",
+                "hr",
+                "blockquote",
+                "embedded-entry-block",
+                "embedded-asset-block",
+                "hyperlink",
+                "entry-hyperlink",
+                "asset-hyperlink",
+                "embedded-entry-inline"
+              ],
+              "message": "Only heading 2, heading 3, heading 4, ordered list, unordered list, horizontal rule, quote, block entry, asset, link to Url, link to entry, link to asset, and inline entry nodes are allowed"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "versionInformation",
+          "name": "Version information",
+          "type": "Text",
+          "localized": false,
+          "required": false,
+          "validations": [
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    }
+  ],
+  "editorInterfaces": [
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "vms0u05139aw",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 4,
+        "createdAt": "2020-02-19T09:48:32.000Z",
+        "createdBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2020-02-19T14:35:23.038Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "banner",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "settings": {
+            "helpText": "This title is just for finding the banner in the CMS - it doesn't show up when you add it to a page"
+          },
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "body",
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "audience",
+          "widgetId": "checkbox",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "expiryDate",
+          "settings": {
+            "ampm": "12",
+            "format": "time"
+          },
+          "widgetId": "datePicker",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "versionInformation",
+          "settings": {
+            "helpText": "What is this banner for? Who should we talk to about it? "
+          },
+          "widgetId": "markdown",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "vms0u05139aw",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 4,
+        "createdAt": "2020-02-19T09:48:28.581Z",
+        "createdBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2020-02-19T14:35:23.113Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "adviserWarning",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "settings": {
+            "helpText": "This title is just for finding the warning in the CMS - it doesn't show up on the website"
+          },
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "body",
+          "settings": {
+            "helpText": "On the website, this warning appears in a sticky box at the top of the window on any page it's added to"
+          },
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "vms0u05139aw",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 11,
+        "createdAt": "2020-02-19T09:48:32.406Z",
+        "createdBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2020-03-06T11:54:31.900Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "adviceCollection",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "adviserTitle",
+          "settings": {
+            "helpText": "Advisers will see this title instead of the public one"
+          },
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "urlEnding",
+          "widgetId": "slugEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "audience",
+          "widgetId": "checkbox",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "body",
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "metaDescription",
+          "widgetId": "multipleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "adviserMetaDescription",
+          "settings": {
+            "helpText": "Leave this blank to keep it the same as the public meta description"
+          },
+          "widgetId": "multipleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "lastAccuracyReview",
+          "settings": {
+            "format": "dateonly",
+            "helpText": "Please fill this in whenever the page is fully factchecked"
+          },
+          "widgetId": "datePicker",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "classificationNumber",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "childContent",
+          "settings": {
+            "bulkEditing": false
+          },
+          "widgetId": "entryLinksEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "relatedCollections",
+          "settings": {
+            "helpText": "If you want to include a 'related pages' box, add the relevant collections here.",
+            "bulkEditing": false
+          },
+          "widgetId": "entryLinksEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "banner",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "versionInformation",
+          "settings": {
+            "helpText": "Describe what you've changed, why you've changed it and what source the change has come from"
+          },
+          "widgetId": "markdown",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "startTaskList",
+          "widgetId": "boolean",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "onlineChatCategory",
+          "widgetId": "radio",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "hideFromSearchEngines",
+          "settings": {
+            "helpText": "Selecting 'yes' hides this collection from Google, internal search and our website navigation. People will only be able to reach it from a direct url",
+            "trueLabel": "Yes",
+            "falseLabel": "No"
+          },
+          "widgetId": "boolean",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "vms0u05139aw",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 4,
+        "createdAt": "2020-02-19T09:48:31.553Z",
+        "createdBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2020-02-19T14:35:23.120Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "amount",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "amount",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "versionInformation",
+          "widgetId": "markdown",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "vms0u05139aw",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 8,
+        "createdAt": "2020-02-19T09:48:32.830Z",
+        "createdBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2020-03-04T11:21:59.674Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "callout",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "settings": {
+            "helpText": "This title is for identifying the callout in the CMS. It won't appear when you add the callout to a collection. To start the callout with a heading, add an h2 to the content field below"
+          },
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "audience",
+          "widgetId": "checkbox",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "body",
+          "settings": {
+            "helpText": "Start this field with an h2 if you want the callout to start with a heading. The title field above won't show up when you add the callout to a collection"
+          },
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "type",
+          "widgetId": "radio",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "versionInformation",
+          "widgetId": "markdown",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "vms0u05139aw",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 4,
+        "createdAt": "2020-02-19T09:48:33.156Z",
+        "createdBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2020-02-19T14:35:28.674Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "contactDetails",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "settings": {
+            "helpText": "This doesn't appear on the page - it's just for identifying contact details in the CMS"
+          },
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "audience",
+          "widgetId": "checkbox",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "body",
+          "settings": {
+            "helpText": "Add your contact details here. For phone numbers, include call costs as an embedded content item"
+          },
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "vms0u05139aw",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 26,
+        "createdAt": "2020-02-19T09:48:29.695Z",
+        "createdBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2020-03-04T11:23:21.613Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "locationSpecificContent",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "settings": {
+            "helpText": "This title DOESN'T appear when you add the unit to a collection. If you want the unit to start with an H2 or similar, put an H2 at the start of the body. Include the selected audience at the end of the title."
+          },
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "audience",
+          "widgetId": "checkbox",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "body",
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "vms0u05139aw",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 6,
+        "createdAt": "2020-02-19T09:48:29.173Z",
+        "createdBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2020-03-04T11:22:15.638Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "calloutAdviser",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "settings": {
+            "helpText": "This title is for identifying the callout in the CMS. It won't appear when you add the callout to a collection. To start the callout with a heading, add an h2 to the content field below"
+          },
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "audience",
+          "widgetId": "checkbox",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "body",
+          "settings": {
+            "helpText": "Start this field with an h2 if you want the callout to start with a heading. The title field above won't show up when you add the callout to a collection"
+          },
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "versionInformation",
+          "widgetId": "markdown",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "vms0u05139aw",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 6,
+        "createdAt": "2020-02-19T09:48:28.863Z",
+        "createdBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2020-03-04T11:22:47.109Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "contentPattern",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "settings": {
+            "helpText": "This doesn't show up on the website - it's just to identify the pattern in the CMS"
+          },
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "body",
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "versionInformation",
+          "widgetId": "markdown",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "vms0u05139aw",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 4,
+        "createdAt": "2020-02-19T09:48:30.184Z",
+        "createdBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2020-02-19T14:35:28.450Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "targetedContentAdviser",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "audience",
+          "widgetId": "checkbox",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "body",
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "versionInformation",
+          "widgetId": "markdown",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "vms0u05139aw",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 6,
+        "createdAt": "2020-02-19T09:48:30.497Z",
+        "createdBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2020-02-19T15:54:04.136Z",
+        "updatedBy": {
+          "sys": {
+            "id": "0QPlxDqibRPf0bV7VmxsJW",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "table",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "body",
+          "widgetId": "3ekp02EHSbakuBza8qSN2v",
+          "widgetNamespace": "extension"
+        },
+        {
+          "fieldId": "audience",
+          "widgetId": "checkbox",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "vms0u05139aw",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 4,
+        "createdAt": "2020-02-19T09:48:29.440Z",
+        "createdBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2020-02-19T14:35:28.596Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "backgroundText",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "body",
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "versionInformation",
+          "widgetId": "markdown",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "vms0u05139aw",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 11,
+        "createdAt": "2020-02-19T09:48:31.141Z",
+        "createdBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2020-03-03T10:53:22.610Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "adviceList",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "urlEnding",
+          "widgetId": "slugEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "audience",
+          "widgetId": "checkbox",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "body",
+          "settings": {
+            "helpText": "Use this for the optional text that shows up at the top of some old index pages"
+          },
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "childContent",
+          "settings": {
+            "helpText": "Select any content that appears under this in the navigation - for example, the pages that will appear on an index",
+            "bulkEditing": false
+          },
+          "widgetId": "entryLinksEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "listStyle",
+          "settings": {
+            "helpText": "Box list is the old style of index page, like the benefits index. Text list is the newer style, like consumer.",
+            "trueLabel": "Text list",
+            "falseLabel": "Box list"
+          },
+          "widgetId": "boolean",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "metaDescription",
+          "widgetId": "multipleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "adviserMetaDescription",
+          "settings": {
+            "helpText": "Leave this blank to keep it the same as the public meta description"
+          },
+          "widgetId": "multipleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "banner",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "versionInformation",
+          "widgetId": "multipleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "onlineChatCategory",
+          "widgetId": "dropdown",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "hideFromSearchEngines",
+          "settings": {
+            "helpText": "Selecting 'yes' hides this collection from Google, internal search and our website navigation. People will only be able to reach it from a direct url",
+            "trueLabel": "Yes",
+            "falseLabel": "No"
+          },
+          "widgetId": "boolean",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "vms0u05139aw",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 2,
+        "createdAt": "2020-02-19T14:35:20.741Z",
+        "createdBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2020-02-19T14:35:23.117Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "callCosts",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "body",
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "vms0u05139aw",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 2,
+        "createdAt": "2020-02-19T14:35:21.349Z",
+        "createdBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2020-02-19T14:35:23.213Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "topic",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "topic",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "adviserName",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "synonyms",
+          "widgetId": "tagEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "vms0u05139aw",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 2,
+        "createdAt": "2020-02-19T14:35:13.982Z",
+        "createdBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2020-02-19T14:35:28.641Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "testType",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "body",
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "vms0u05139aw",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 4,
+        "createdAt": "2020-02-19T14:35:15.466Z",
+        "createdBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2020-03-04T11:21:17.228Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "adviceCollectionAdviser",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "urlEnding",
+          "widgetId": "slugEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "audience",
+          "widgetId": "checkbox",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "body",
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "lastAccuracyReview",
+          "settings": {
+            "format": "dateonly"
+          },
+          "widgetId": "datePicker",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "banner",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "equivalentPublicCollection",
+          "settings": {
+            "helpText": "Some topics have totally separate adviser and public content. Here you can identify where we have different content that covers the same user need. Leave blank where Advisernet has the same content as the public site"
+          },
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "startOfTaskList",
+          "settings": {
+            "trueLabel": "Yes",
+            "falseLabel": "No"
+          },
+          "widgetId": "boolean",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "versionInformation",
+          "settings": {
+            "helpText": "Describe what you've changed, why you've changed it and what source the change has come from"
+          },
+          "widgetId": "markdown",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "vms0u05139aw",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 14,
+        "createdAt": "2020-02-19T14:35:15.773Z",
+        "createdBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2020-02-24T14:46:43.983Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "templateLetterQuestion",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "questionTitle",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "questionHelpText",
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "userInputType",
+          "widgetId": "dropdown",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "optionsForThisQuestion",
+          "settings": {
+            "helpText": "For multiple choice questions, enter the options users can choose from"
+          },
+          "widgetId": "tagEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "required",
+          "settings": {
+            "trueLabel": "Question is required",
+            "falseLabel": "Question is optional"
+          },
+          "widgetId": "boolean",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "exampleText",
+          "settings": {
+            "helpText": "Enter the text that appears on the example letter before users answer the questions themselves"
+          },
+          "widgetId": "multipleLine",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "vms0u05139aw",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 2,
+        "createdAt": "2020-02-19T14:35:16.576Z",
+        "createdBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2020-02-19T14:35:30.548Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "tag",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "name",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "vms0u05139aw",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 2,
+        "createdAt": "2020-02-19T14:35:16.171Z",
+        "createdBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2020-02-19T14:35:26.392Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "templateLetter",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "letterTitle",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "exampleLetter",
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "userQuestions",
+          "settings": {
+            "bulkEditing": false
+          },
+          "widgetId": "entryLinksEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "vms0u05139aw",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 2,
+        "createdAt": "2020-02-19T14:35:18.879Z",
+        "createdBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2020-02-19T14:35:26.494Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "legislationLink",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "settings": {
+            "helpText": "This should be the name of the piece of legislation. This is the link text that will appear on the website"
+          },
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "url",
+          "settings": {
+            "helpText": "Link to the latest version of the relevant legislation"
+          },
+          "widgetId": "urlEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "legalContext",
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "vms0u05139aw",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 2,
+        "createdAt": "2020-02-19T14:35:19.518Z",
+        "createdBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2020-02-19T14:35:26.500Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "resultPage",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "resultName",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "resultText",
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "vms0u05139aw",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 2,
+        "createdAt": "2020-02-19T14:35:19.753Z",
+        "createdBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2020-02-19T14:35:30.762Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "answer",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "answerText",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "tool",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "nextQuestionOrResults",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "vms0u05139aw",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 2,
+        "createdAt": "2020-02-19T14:35:20.019Z",
+        "createdBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2020-02-19T14:35:23.046Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "question",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "questionText",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "tool",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "answerOptions",
+          "settings": {
+            "bulkEditing": false
+          },
+          "widgetId": "entryLinksEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "vms0u05139aw",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 2,
+        "createdAt": "2020-02-19T14:35:20.308Z",
+        "createdBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2020-02-19T14:35:25.044Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "tool",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "body",
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "startingQuestion",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    },
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "vms0u05139aw",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 4,
+        "createdAt": "2020-02-19T15:44:16.497Z",
+        "createdBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2020-03-04T11:23:58.997Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "targetedContent",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "adviserTitle",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "audience",
+          "widgetId": "checkbox",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "body",
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "versionInformation",
+          "widgetId": "markdown",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    }
+  ],
+  "locales": [
+    {
+      "name": "English (United Kingdom)",
+      "code": "en-GB",
+      "fallbackCode": null,
+      "default": true,
+      "contentManagementApi": true,
+      "contentDeliveryApi": true,
+      "optional": false,
+      "sys": {
+        "type": "Locale",
+        "id": "1Ny60SekYyFfGD28z0Ngq9",
+        "version": 1,
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "vms0u05139aw"
+          }
+        },
+        "environment": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Environment",
+            "id": "content_playground"
+          }
+        },
+        "createdAt": "2020-03-02T14:32:24Z",
+        "updatedAt": "2020-03-02T14:32:24Z"
+      }
+    },
+    {
+      "name": "English (Wales)",
+      "code": "en-WLS",
+      "fallbackCode": "en-GB",
+      "default": false,
+      "contentManagementApi": true,
+      "contentDeliveryApi": true,
+      "optional": true,
+      "sys": {
+        "type": "Locale",
+        "id": "7p45dAv1hBnQFKaLh77agn",
+        "version": 1,
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "vms0u05139aw"
+          }
+        },
+        "environment": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Environment",
+            "id": "content_playground"
+          }
+        },
+        "createdAt": "2020-03-02T14:32:24Z",
+        "updatedAt": "2020-03-02T14:32:24Z"
+      }
+    },
+    {
+      "name": "Welsh (United Kingdom)",
+      "code": "cy-GB",
+      "fallbackCode": "en-WLS",
+      "default": false,
+      "contentManagementApi": true,
+      "contentDeliveryApi": true,
+      "optional": true,
+      "sys": {
+        "type": "Locale",
+        "id": "3IWdJeegvXpuiUhpS8nGH8",
+        "version": 1,
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "vms0u05139aw"
+          }
+        },
+        "environment": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Environment",
+            "id": "content_playground"
+          }
+        },
+        "createdAt": "2020-03-02T14:32:24Z",
+        "updatedAt": "2020-03-02T14:32:24Z"
+      }
+    },
+    {
+      "name": "English (Scotland)",
+      "code": "en-SCT",
+      "fallbackCode": "en-GB",
+      "default": false,
+      "contentManagementApi": true,
+      "contentDeliveryApi": true,
+      "optional": true,
+      "sys": {
+        "type": "Locale",
+        "id": "7oMdbdEFRSrGmObkJzVhi8",
+        "version": 1,
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "vms0u05139aw"
+          }
+        },
+        "environment": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Environment",
+            "id": "content_playground"
+          }
+        },
+        "createdAt": "2020-03-02T14:32:24Z",
+        "updatedAt": "2020-03-02T14:32:24Z"
+      }
+    }
+  ]
+}

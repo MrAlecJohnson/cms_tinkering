@@ -1,0 +1,654 @@
+{
+  "contentTypes": [
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "vms0u05139aw"
+          }
+        },
+        "id": "adviceCollection",
+        "type": "ContentType",
+        "createdAt": "2020-02-19T09:48:27.154Z",
+        "updatedAt": "2020-03-06T12:12:57.843Z",
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 13,
+        "publishedAt": "2020-03-06T12:12:57.842Z",
+        "firstPublishedAt": "2020-02-19T09:48:32.322Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "publishedCounter": 7,
+        "version": 14,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        }
+      },
+      "displayField": "title",
+      "name": "Advice collection - public",
+      "description": "A self-contained piece of advice that answers a definitive user need from start to end. \n\nAppears on the website as a page.",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": true,
+          "required": true,
+          "validations": [
+            {
+              "size": {
+                "min": 5,
+                "max": 150
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "adviserTitle",
+          "name": "Adviser title",
+          "type": "Symbol",
+          "localized": true,
+          "required": false,
+          "validations": [
+            {
+              "unique": true
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "urlEnding",
+          "name": "Url ending",
+          "type": "Symbol",
+          "localized": true,
+          "required": true,
+          "validations": [
+            {
+              "unique": true
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "audience",
+          "name": "Audience",
+          "type": "Array",
+          "localized": false,
+          "required": true,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Symbol",
+            "validations": [
+              {
+                "in": [
+                  "England",
+                  "Scotland",
+                  "Wales",
+                  "Welsh language"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "body",
+          "name": "Body",
+          "type": "RichText",
+          "localized": true,
+          "required": false,
+          "validations": [
+            {
+              "nodes": {
+                "entry-hyperlink": [
+                  {
+                    "linkContentType": [
+                      "adviceCollectionAdviser",
+                      "adviceCollection",
+                      "adviceList"
+                    ]
+                  }
+                ],
+                "embedded-entry-block": [
+                  {
+                    "linkContentType": [
+                      "calloutAdviser",
+                      "callout",
+                      "contactDetails",
+                      "contentPattern",
+                      "locationSpecificContent",
+                      "table",
+                      "circumstantialUnitAdviser",
+                      "circumstantialUnit",
+                      "templateLetter"
+                    ]
+                  }
+                ],
+                "embedded-entry-inline": [
+                  {
+                    "linkContentType": [
+                      "contactDetails",
+                      "contentPattern",
+                      "legislationLink",
+                      "amount"
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "enabledNodeTypes": [
+                "heading-2",
+                "heading-3",
+                "heading-4",
+                "ordered-list",
+                "unordered-list",
+                "hr",
+                "blockquote",
+                "embedded-entry-block",
+                "embedded-asset-block",
+                "hyperlink",
+                "entry-hyperlink",
+                "asset-hyperlink",
+                "embedded-entry-inline"
+              ],
+              "message": "Only heading 2, heading 3, heading 4, ordered list, unordered list, horizontal rule, quote, block entry, asset, link to Url, link to entry, link to asset, and inline entry nodes are allowed"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "metaDescription",
+          "name": "Meta Description",
+          "type": "Text",
+          "localized": true,
+          "required": false,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "adviserMetaDescription",
+          "name": "Adviser meta description",
+          "type": "Text",
+          "localized": true,
+          "required": false,
+          "validations": [
+            {
+              "size": {
+                "max": 250
+              },
+              "message": "Please make this less than 250 characters, so it's easy to skim on a search results page"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "lastAccuracyReview",
+          "name": "Last accuracy review",
+          "type": "Date",
+          "localized": false,
+          "required": false,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "classificationNumber",
+          "name": "Classification number",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "unique": true
+            },
+            {
+              "regexp": {
+                "pattern": "^(?:\\d{1,3}\\.){4}$",
+                "flags": null
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "childContent",
+          "name": "Child content",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": [
+                  "adviceCollectionAdviser",
+                  "adviceCollection",
+                  "adviceList"
+                ]
+              }
+            ],
+            "linkType": "Entry"
+          }
+        },
+        {
+          "id": "relatedCollections",
+          "name": "Related collections",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": [
+                  "adviceCollectionAdviser",
+                  "adviceCollection"
+                ]
+              }
+            ],
+            "linkType": "Entry"
+          }
+        },
+        {
+          "id": "banner",
+          "name": "Banner",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "banner"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "versionInformation",
+          "name": "Version information",
+          "type": "Text",
+          "localized": false,
+          "required": true,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "startTaskList",
+          "name": "Start of task list?",
+          "type": "Boolean",
+          "localized": false,
+          "required": true,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "onlineChatCategory",
+          "name": "Online chat category",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "in": [
+                "Standard chat",
+                "No chat",
+                "Universal Credit",
+                "Help to Claim contact page",
+                "Debt",
+                "Debt - Northern Ireland",
+                "Scams",
+                "Scams landing page",
+                "Consumer",
+                "Consumer - contact us",
+                "Contact us page",
+                "Chat training"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "hideFromSearchEngines",
+          "name": "Hide from search engines?",
+          "type": "Boolean",
+          "localized": false,
+          "required": true,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "vms0u05139aw"
+          }
+        },
+        "id": "adviceList",
+        "type": "ContentType",
+        "createdAt": "2020-02-19T09:48:28.152Z",
+        "updatedAt": "2020-03-06T12:12:58.255Z",
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 13,
+        "publishedAt": "2020-03-06T12:12:58.255Z",
+        "firstPublishedAt": "2020-02-19T09:48:31.062Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "publishedCounter": 7,
+        "version": 14,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        }
+      },
+      "displayField": "title",
+      "name": "Advice list",
+      "description": "A curated group of advice collections on a particular theme. ",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": true,
+          "required": true,
+          "validations": [
+            {
+              "size": {
+                "min": 5,
+                "max": 150
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "urlEnding",
+          "name": "Url ending",
+          "type": "Symbol",
+          "localized": true,
+          "required": true,
+          "validations": [
+            {
+              "unique": true
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "audience",
+          "name": "Audience",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Symbol",
+            "validations": [
+              {
+                "in": [
+                  "England",
+                  "Scotland",
+                  "Wales",
+                  "Welsh language"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "body",
+          "name": "Body",
+          "type": "RichText",
+          "localized": true,
+          "required": false,
+          "validations": [
+            {
+              "nodes": {
+              }
+            },
+            {
+              "enabledNodeTypes": [
+                "ordered-list",
+                "unordered-list",
+                "hr",
+                "blockquote",
+                "hyperlink",
+                "entry-hyperlink",
+                "asset-hyperlink"
+              ],
+              "message": "Only ordered list, unordered list, horizontal rule, quote, link to Url, link to entry, and link to asset nodes are allowed"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "childContent",
+          "name": "Child content",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": [
+                  "adviceCollectionAdviser",
+                  "adviceCollection",
+                  "adviceList"
+                ]
+              }
+            ],
+            "linkType": "Entry"
+          }
+        },
+        {
+          "id": "listStyle",
+          "name": "List style",
+          "type": "Boolean",
+          "localized": false,
+          "required": true,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "metaDescription",
+          "name": "Meta description",
+          "type": "Text",
+          "localized": true,
+          "required": false,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "adviserMetaDescription",
+          "name": "Adviser meta description",
+          "type": "Text",
+          "localized": true,
+          "required": false,
+          "validations": [
+            {
+              "size": {
+                "max": 250
+              },
+              "message": "Please make this less than 250 characters, so it's easy to skim on a search results page"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "banner",
+          "name": "Banner",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "banner"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "versionInformation",
+          "name": "Version information",
+          "type": "Text",
+          "localized": false,
+          "required": true,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "onlineChatCategory",
+          "name": "Online chat category",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "in": [
+                "Standard chat",
+                "No chat",
+                "Universal Credit",
+                "Help to Claim contact page",
+                "Debt",
+                "Debt - Northern Ireland",
+                "Scams",
+                "Scams landing page",
+                "Consumer",
+                "Consumer - contact us",
+                "Contact us page",
+                "Chat training"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "hideFromSearchEngines",
+          "name": "Hide from search engines?",
+          "type": "Boolean",
+          "localized": false,
+          "required": true,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false
+        }
+      ]
+    }
+  ]
+}
