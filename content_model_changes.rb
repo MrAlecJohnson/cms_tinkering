@@ -3,6 +3,8 @@ require 'json'
 require_relative 'content_model_methods'
 
 def chat_categories(data)
+    # Adds the full set of online chat categories to any
+    # content type with an 'Online chat category' field
     chat_options = [
         "Standard chat", 
         "No chat", 
@@ -18,10 +20,14 @@ def chat_categories(data)
         "Chat training"
     ]
 
+    # hash that will becomethe new json to upload
     new_data = {
             contentTypes: [],
         }
 
+    # The bit below is more or less repeated - would be good to break it into procs or similar
+    # It looks through all the content types and finds the ones with an online chat category
+    # Then it adds the full list of options to that category and adds that type to new_data
     data['contentTypes'].each do |t|
         type_id = t['sys']['id']
         fields = t['fields']
@@ -42,6 +48,7 @@ def remove_meta_description_validation(data)
             contentTypes: [],
         }
 
+    # finds any content type with a meta description and removes its validations
     data['contentTypes'].each do |t|
         type_id = t['sys']['id']
         fields = t['fields']
@@ -58,6 +65,7 @@ def remove_meta_description_validation(data)
 end
 
 def rich_text_styling(data)
+    # list of types to change: only types with a rich text field with embeddings and style options
     types = [
         'adviceCollection',
         'callout',
@@ -68,6 +76,7 @@ def rich_text_styling(data)
         'targetedContentAdviser'
     ]
     
+    # 2 hashes of things you can add to rich text - Contentful splits them into 'nodes' and 'marks'
     permitted_nodes = {
         "enabledNodeTypes": [
           "heading-2",
@@ -92,10 +101,14 @@ def rich_text_styling(data)
         "message": "Only bold marks are allowed"
       }
 
+    # hash that will become the import json
     new_data = {
             contentTypes: [],
         }
 
+    # runs on each of the previously specified content types
+    # deletes current node and mark validations for rich text fields and adds the new ones
+    # this should have the helpful side effect of removing any current inconsistencies
     to_change = data['contentTypes'].select{|t| types.include? t['sys']['id']}
     to_change.each do |t|
         fields = t['fields']
@@ -115,6 +128,7 @@ def rich_text_styling(data)
 end
 
 def add_adviser_warning_field(data)
+    # creates a new field - CURRENTLY INCOMPLETE
     types = [
         'adviceCollection',
         'adviceCollectionAdviser',
