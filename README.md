@@ -11,4 +11,6 @@ So I've switched to using the CLI tool. You'll need to have installed this and b
 
 I considered an approach that made the changes to dev, then copied parts of the content model from dev to qa, then from qa to production. But this seemed riskier: dev might contain other content model changes that we don't want to copy over to qa or production.
 
-**content_model_methods.rb**, full of reusable methods for making changes to the content model json files. 
+**content_model_methods.rb** will contain reusable methods for making changes to the content model json files. Not much there yet.
+
+**bugfix.rb** was something I put together to test the bug in the Contentful management gem. There's an open issue about this at https://github.com/contentful/contentful-management.rb/issues/211
