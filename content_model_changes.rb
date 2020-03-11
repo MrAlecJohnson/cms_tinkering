@@ -128,7 +128,8 @@ def rich_text_styling(data)
 end
 
 def add_adviser_warning_field(data)
-    # creates a new field - CURRENTLY INCOMPLETE
+    # creates a new field in the specified list of types
+    # the new field is a single-entry reference called 'adviser warning'
     types = [
         'adviceCollection',
         'adviceCollectionAdviser',
@@ -153,6 +154,7 @@ def add_adviser_warning_field(data)
         "linkType": "Entry"
       }
 
+    # contentful stores help text in the 'editor interfaces' section, not the content type
     help_text = {
         "fieldId": "adviserWarning",
         "settings": {
@@ -170,19 +172,63 @@ def add_adviser_warning_field(data)
     to_change = data['contentTypes'].select{|t| types.include? t['sys']['id']}
     to_change.each do |t|
         fields = t['fields']
+        # delete the field if it already exists 
+        fields.delete_if do |field|
+            field['id'] == "adviserWarning"
+        end
+        # then add the new field and add the edited type to the import data hash
         fields << new_field
         new_data[:contentTypes] << t
     end
 
+    # get the editor interfaces for the relevant content types - these cover appearance
     appearance = data['editorInterfaces'].select do |t| 
         types.include? t['sys']['contentType']['sys']['id']
     end
 
+    # as with the fields, delete the entry if it already exists, then add the new help text
     appearance.each do |t|
+        t['controls'].delete_if do |control|
+            control['fieldId'] == "adviserWarning"
+        end
         t['controls'] << help_text
         new_data[:editorInterfaces] << t
     end
 
     return new_data
 
+end
+
+
+def add_3rd_list_style(data)
+    # removes the 'list style' boolean on index pages
+    # changes it to a 3-option choice of styles 
+    # CURRENTLY INCOMPLETE
+    types = [
+        'adviceList'
+    ]
+
+    new_field = {
+        "id": "listStyle",
+        "name": "List style",
+        "type": "Array",
+        "localized": false,
+        "required": true,
+        "validations": [
+        ],
+        "disabled": false,
+        "omitted": false,
+        "items": {
+          "type": "Symbol",
+          "validations": [
+            {
+              "in": [
+                "Text list",
+                "Box list",
+                "List subheading"
+              ]
+            }
+          ]
+        }
+      }
 end

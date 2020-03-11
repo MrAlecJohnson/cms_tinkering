@@ -12,7 +12,7 @@
         "id": "adviceCollection",
         "type": "ContentType",
         "createdAt": "2020-02-19T09:48:27.154Z",
-        "updatedAt": "2020-03-06T17:04:40.606Z",
+        "updatedAt": "2020-03-11T12:56:30.632Z",
         "environment": {
           "sys": {
             "id": "content_playground",
@@ -20,8 +20,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 33,
-        "publishedAt": "2020-03-06T17:04:40.606Z",
+        "publishedVersion": 41,
+        "publishedAt": "2020-03-11T12:56:30.632Z",
         "firstPublishedAt": "2020-02-19T09:48:32.322Z",
         "createdBy": {
           "sys": {
@@ -37,8 +37,8 @@
             "id": "1fRbXAkuOnN468Ul2C3xhd"
           }
         },
-        "publishedCounter": 16,
-        "version": 34,
+        "publishedCounter": 20,
+        "version": 42,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -398,23 +398,6 @@
           "disabled": false,
           "omitted": false,
           "linkType": "Entry"
-        },
-        {
-          "id": "adviserWarning",
-          "name": "Adviser warning",
-          "type": "Link",
-          "localized": false,
-          "required": false,
-          "validations": [
-            {
-              "linkContentType": [
-                "adviserWarning"
-              ]
-            }
-          ],
-          "disabled": false,
-          "omitted": false,
-          "linkType": "Entry"
         }
       ]
     },
@@ -430,7 +413,7 @@
         "id": "adviceList",
         "type": "ContentType",
         "createdAt": "2020-02-19T09:48:28.152Z",
-        "updatedAt": "2020-03-06T16:51:54.585Z",
+        "updatedAt": "2020-03-11T12:56:31.201Z",
         "environment": {
           "sys": {
             "id": "content_playground",
@@ -438,8 +421,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 21,
-        "publishedAt": "2020-03-06T16:51:54.585Z",
+        "publishedVersion": 27,
+        "publishedAt": "2020-03-11T12:56:31.201Z",
         "firstPublishedAt": "2020-02-19T09:48:31.062Z",
         "createdBy": {
           "sys": {
@@ -455,8 +438,8 @@
             "id": "1fRbXAkuOnN468Ul2C3xhd"
           }
         },
-        "publishedCounter": 11,
-        "version": 22,
+        "publishedCounter": 14,
+        "version": 28,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -694,21 +677,28 @@
           "omitted": false
         },
         {
-          "id": "adviserWarning",
-          "name": "Adviser warning",
-          "type": "Link",
+          "id": "test",
+          "name": "TEST",
+          "type": "Array",
           "localized": false,
           "required": false,
           "validations": [
-            {
-              "linkContentType": [
-                "adviserWarning"
-              ]
-            }
+
           ],
           "disabled": false,
           "omitted": false,
-          "linkType": "Entry"
+          "items": {
+            "type": "Symbol",
+            "validations": [
+              {
+                "in": [
+                  "Text list",
+                  "Box list",
+                  "List subheading"
+                ]
+              }
+            ]
+          }
         },
         {
           "id": "adviserWarning",
@@ -741,7 +731,7 @@
         "id": "adviceCollectionAdviser",
         "type": "ContentType",
         "createdAt": "2020-02-19T14:35:10.852Z",
-        "updatedAt": "2020-03-06T16:51:54.319Z",
+        "updatedAt": "2020-03-11T12:56:30.888Z",
         "environment": {
           "sys": {
             "id": "content_playground",
@@ -749,8 +739,8 @@
             "linkType": "Environment"
           }
         },
-        "publishedVersion": 7,
-        "publishedAt": "2020-03-06T16:51:54.319Z",
+        "publishedVersion": 9,
+        "publishedAt": "2020-03-11T12:56:30.888Z",
         "firstPublishedAt": "2020-02-19T14:35:15.396Z",
         "createdBy": {
           "sys": {
@@ -766,8 +756,8 @@
             "id": "1fRbXAkuOnN468Ul2C3xhd"
           }
         },
-        "publishedCounter": 4,
-        "version": 8,
+        "publishedCounter": 5,
+        "version": 10,
         "publishedBy": {
           "sys": {
             "type": "Link",
@@ -983,23 +973,6 @@
           "disabled": false,
           "omitted": false,
           "linkType": "Entry"
-        },
-        {
-          "id": "adviserWarning",
-          "name": "Adviser warning",
-          "type": "Link",
-          "localized": false,
-          "required": false,
-          "validations": [
-            {
-              "linkContentType": [
-                "adviserWarning"
-              ]
-            }
-          ],
-          "disabled": false,
-          "omitted": false,
-          "linkType": "Entry"
         }
       ]
     }
@@ -1016,7 +989,7 @@
             "linkType": "Space"
           }
         },
-        "version": 25,
+        "version": 32,
         "createdAt": "2020-02-19T09:48:32.406Z",
         "createdBy": {
           "sys": {
@@ -1025,7 +998,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2020-03-06T17:04:41.329Z",
+        "updatedAt": "2020-03-11T12:56:30.694Z",
         "updatedBy": {
           "sys": {
             "id": "1fRbXAkuOnN468Ul2C3xhd",
@@ -1158,12 +1131,6 @@
           "fieldId": "adviserWarning",
           "settings": {
             "helpText": "Adds an adviser-only sticky box to the top of the page, like on the immigration public pages"
-          }
-        },
-        {
-          "fieldId": "adviserWarning",
-          "settings": {
-            "helpText": "Adds an adviser-only sticky box to the top of the page, like on the immigration public pages"
           },
           "widgetId": "entryLinkEditor",
           "widgetNamespace": "builtin"
@@ -1181,7 +1148,7 @@
             "linkType": "Space"
           }
         },
-        "version": 17,
+        "version": 22,
         "createdAt": "2020-02-19T09:48:31.141Z",
         "createdBy": {
           "sys": {
@@ -1190,7 +1157,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2020-03-06T16:51:54.658Z",
+        "updatedAt": "2020-03-11T12:56:31.270Z",
         "updatedBy": {
           "sys": {
             "id": "1fRbXAkuOnN468Ul2C3xhd",
@@ -1295,7 +1262,12 @@
           "widgetNamespace": "builtin"
         },
         {
-          "fieldId": "adviserWarning"
+          "fieldId": "test",
+          "settings": {
+            "helpText": "Box list is the old style of index page, like the benefits index. Text list is the newer style, like consumer. List subheading is for what used to be 'Beta page groups' - the ones that aren't pages, just subheadings on text lists."
+          },
+          "widgetId": "checkbox",
+          "widgetNamespace": "builtin"
         },
         {
           "fieldId": "adviserWarning",
@@ -1318,7 +1290,7 @@
             "linkType": "Space"
           }
         },
-        "version": 6,
+        "version": 7,
         "createdAt": "2020-02-19T14:35:15.466Z",
         "createdBy": {
           "sys": {
@@ -1327,7 +1299,7 @@
             "linkType": "User"
           }
         },
-        "updatedAt": "2020-03-06T16:51:54.396Z",
+        "updatedAt": "2020-03-11T12:56:30.942Z",
         "updatedBy": {
           "sys": {
             "id": "1fRbXAkuOnN468Ul2C3xhd",
@@ -1408,9 +1380,6 @@
           },
           "widgetId": "markdown",
           "widgetNamespace": "builtin"
-        },
-        {
-          "fieldId": "adviserWarning"
         },
         {
           "fieldId": "adviserWarning",

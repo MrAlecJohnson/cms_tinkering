@@ -47,6 +47,7 @@ unless export_only
     File.open(import_file, "w") do |f|
         f.write(JSON.pretty_generate(new_data))
     end
+    puts "applied changes and created file for import"
 
     # import the new file into the target environment
     `#{import}`
