@@ -1,0 +1,476 @@
+{
+  "contentTypes": [
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "vms0u05139aw"
+          }
+        },
+        "id": "adviceList",
+        "type": "ContentType",
+        "createdAt": "2020-02-19T09:48:28.152Z",
+        "updatedAt": "2020-03-11T12:59:07.332Z",
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        },
+        "publishedVersion": 29,
+        "publishedAt": "2020-03-11T12:59:07.332Z",
+        "firstPublishedAt": "2020-02-19T09:48:31.062Z",
+        "createdBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "updatedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        },
+        "publishedCounter": 15,
+        "version": 30,
+        "publishedBy": {
+          "sys": {
+            "type": "Link",
+            "linkType": "User",
+            "id": "1fRbXAkuOnN468Ul2C3xhd"
+          }
+        }
+      },
+      "displayField": "title",
+      "name": "Advice list",
+      "description": "A curated group of advice collections on a particular theme. ",
+      "fields": [
+        {
+          "id": "title",
+          "name": "Title",
+          "type": "Symbol",
+          "localized": true,
+          "required": true,
+          "validations": [
+            {
+              "size": {
+                "min": 5,
+                "max": 150
+              }
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "urlEnding",
+          "name": "Url ending",
+          "type": "Symbol",
+          "localized": true,
+          "required": true,
+          "validations": [
+            {
+              "unique": true
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "audience",
+          "name": "Audience",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Symbol",
+            "validations": [
+              {
+                "in": [
+                  "England",
+                  "Scotland",
+                  "Wales",
+                  "Welsh language"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "body",
+          "name": "Body",
+          "type": "RichText",
+          "localized": true,
+          "required": false,
+          "validations": [
+            {
+              "nodes": {
+              }
+            },
+            {
+              "enabledMarks": [
+                "bold"
+              ],
+              "message": "Only bold marks are allowed"
+            },
+            {
+              "enabledNodeTypes": [
+                "heading-2",
+                "heading-3",
+                "heading-4",
+                "hyperlink",
+                "entry-hyperlink",
+                "asset-hyperlink",
+                "unordered-list",
+                "ordered-list"
+              ],
+              "message": "Only heading 2, heading 3, heading 4, link to Url, link to entry, link to asset, unordered list, and ordered list nodes are allowed"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "childContent",
+          "name": "Child content",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Link",
+            "validations": [
+              {
+                "linkContentType": [
+                  "adviceCollectionAdviser",
+                  "adviceCollection",
+                  "adviceList"
+                ]
+              }
+            ],
+            "linkType": "Entry"
+          }
+        },
+        {
+          "id": "metaDescription",
+          "name": "Meta description",
+          "type": "Text",
+          "localized": true,
+          "required": false,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "adviserMetaDescription",
+          "name": "Adviser meta description",
+          "type": "Text",
+          "localized": true,
+          "required": false,
+          "validations": [
+            {
+              "size": {
+                "max": 250
+              },
+              "message": "Please make this less than 250 characters, so it's easy to skim on a search results page"
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "banner",
+          "name": "Banner",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "banner"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "versionInformation",
+          "name": "Version information",
+          "type": "Text",
+          "localized": false,
+          "required": true,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "onlineChatCategory",
+          "name": "Online chat category",
+          "type": "Symbol",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "in": [
+                "Standard chat",
+                "No chat",
+                "Universal Credit",
+                "Help to Claim contact page",
+                "Debt",
+                "Debt - Northern Ireland",
+                "Scams",
+                "Scams landing page",
+                "Consumer",
+                "Consumer - contact us",
+                "Contact us page",
+                "Chat training"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "hideFromSearchEngines",
+          "name": "Hide from search engines?",
+          "type": "Boolean",
+          "localized": false,
+          "required": true,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false
+        },
+        {
+          "id": "test",
+          "name": "TEST",
+          "type": "Array",
+          "localized": false,
+          "required": false,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Symbol",
+            "validations": [
+              {
+                "in": [
+                  "Text list",
+                  "Box list",
+                  "List subheading"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "adviserWarning",
+          "name": "Adviser warning",
+          "type": "Link",
+          "localized": false,
+          "required": false,
+          "validations": [
+            {
+              "linkContentType": [
+                "adviserWarning"
+              ]
+            }
+          ],
+          "disabled": false,
+          "omitted": false,
+          "linkType": "Entry"
+        },
+        {
+          "id": "listStyle",
+          "name": "List style",
+          "type": "Array",
+          "localized": false,
+          "required": true,
+          "validations": [
+
+          ],
+          "disabled": false,
+          "omitted": false,
+          "items": {
+            "type": "Symbol",
+            "validations": [
+              {
+                "in": [
+                  "Text list",
+                  "Box list",
+                  "List subheading"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ],
+  "editorInterfaces": [
+    {
+      "sys": {
+        "id": "default",
+        "type": "EditorInterface",
+        "space": {
+          "sys": {
+            "id": "vms0u05139aw",
+            "type": "Link",
+            "linkType": "Space"
+          }
+        },
+        "version": 24,
+        "createdAt": "2020-02-19T09:48:31.141Z",
+        "createdBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "updatedAt": "2020-03-11T12:59:07.724Z",
+        "updatedBy": {
+          "sys": {
+            "id": "1fRbXAkuOnN468Ul2C3xhd",
+            "type": "Link",
+            "linkType": "User"
+          }
+        },
+        "contentType": {
+          "sys": {
+            "id": "adviceList",
+            "type": "Link",
+            "linkType": "ContentType"
+          }
+        },
+        "environment": {
+          "sys": {
+            "id": "content_playground",
+            "type": "Link",
+            "linkType": "Environment"
+          }
+        }
+      },
+      "controls": [
+        {
+          "fieldId": "title",
+          "widgetId": "singleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "urlEnding",
+          "widgetId": "slugEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "audience",
+          "widgetId": "checkbox",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "body",
+          "settings": {
+            "helpText": "Use this for the optional text that shows up at the top of some old index pages"
+          },
+          "widgetId": "richTextEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "childContent",
+          "settings": {
+            "helpText": "Select any content that appears under this in the navigation - for example, the pages that will appear on an index",
+            "bulkEditing": false
+          },
+          "widgetId": "entryLinksEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "metaDescription",
+          "widgetId": "multipleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "adviserMetaDescription",
+          "settings": {
+            "helpText": "Leave this blank to keep it the same as the public meta description"
+          },
+          "widgetId": "multipleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "banner",
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "versionInformation",
+          "widgetId": "multipleLine",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "onlineChatCategory",
+          "widgetId": "dropdown",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "hideFromSearchEngines",
+          "settings": {
+            "helpText": "Selecting 'yes' hides this collection from Google, internal search and our website navigation. People will only be able to reach it from a direct url",
+            "trueLabel": "Yes",
+            "falseLabel": "No"
+          },
+          "widgetId": "boolean",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "test",
+          "settings": {
+            "helpText": "Box list is the old style of index page, like the benefits index. Text list is the newer style, like consumer. List subheading is for what used to be 'Beta page groups' - the ones that aren't pages, just subheadings on text lists."
+          },
+          "widgetId": "checkbox",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "adviserWarning",
+          "settings": {
+            "helpText": "Adds an adviser-only sticky box to the top of the page, like on the immigration public pages"
+          },
+          "widgetId": "entryLinkEditor",
+          "widgetNamespace": "builtin"
+        },
+        {
+          "fieldId": "listStyle",
+          "settings": {
+            "helpText": "Box list is the old style of index page, like the benefits index. Text list is the newer style, like consumer. List subheading is for what used to be 'Beta page groups' - the ones that aren't pages, just subheadings on text lists."
+          },
+          "widgetId": "checkbox",
+          "widgetNamespace": "builtin"
+        }
+      ]
+    }
+  ]
+}

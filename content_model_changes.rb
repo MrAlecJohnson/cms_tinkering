@@ -1,5 +1,4 @@
 require 'json'
-
 require_relative 'content_model_methods'
 
 def chat_categories(data)
@@ -172,7 +171,8 @@ def add_adviser_warning_field(data)
     to_change = data['contentTypes'].select{|t| types.include? t['sys']['id']}
     to_change.each do |t|
         fields = t['fields']
-        # delete the field if it already exists 
+        # delete the field if it already exists
+        # this only works if no entries have filled in this field
         fields.delete_if do |field|
             field['id'] == "adviserWarning"
         end
@@ -200,13 +200,10 @@ def add_adviser_warning_field(data)
 end
 
 
-def add_3rd_list_style(data)
+def add_third_list_style(data)
     # removes the 'list style' boolean on index pages
     # changes it to a 3-option choice of styles 
     # CURRENTLY INCOMPLETE
-    types = [
-        'adviceList'
-    ]
 
     new_field = {
         "id": "listStyle",
@@ -231,4 +228,50 @@ def add_3rd_list_style(data)
           ]
         }
       }
+
+    # contentful stores help text in the 'editor interfaces' section, not the content type
+    help_text = {
+        "fieldId": "listStyle",
+        "settings": {
+          "helpText": "Box list is the old style of index page, like the benefits index. Text list is the newer style, like consumer. List subheading is for what used to be 'Beta page groups' - the ones that aren't pages, just subheadings on text lists."
+        },
+        "widgetId": "checkbox",
+        "widgetNamespace": "builtin"
+    }
+
+    new_data = {
+        contentTypes: [],
+        editorInterfaces: []
+    }
+
+    to_change = data['contentTypes'].select{|t| t['sys']['id'] == 'adviceList'}
+    to_change.each do |t|
+        fields = t['fields']
+        # THIS DOESN'T WORK - NEED TO OMIT FIRST I THINK
+        fields.each_with_index do |field, index|
+            if field['id'] == 'listStyle'
+                delete_field('adviceList', 'listStyle')
+                fields.insert(index, new_field)
+                break
+            end
+        end
+        new_data[:contentTypes] << t
+    end
+
+    # get the editor interfaces for the relevant content types - these cover appearance
+    appearance = data['editorInterfaces'].select do |t| 
+        t['sys']['contentType']['sys']['id'] == 'adviceList'
+    end
+
+    # as with the fields, delete the entry if it already exists, then add the new help text
+    appearance.each do |t|
+        t['controls'].delete_if do |control|
+            control['fieldId'] == "listStyle"
+        end
+        t['controls'] << help_text
+        new_data[:editorInterfaces] << t
+    end
+
+    return new_data
+
 end
