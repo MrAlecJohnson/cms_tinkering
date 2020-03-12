@@ -202,7 +202,6 @@ end
 def add_third_list_style(data)
     # removes the 'list style' boolean on index pages
     # changes it to a 3-option choice of styles 
-    # CURRENTLY INCOMPLETE
 
     new_field = {
         "id": "listStyle",
@@ -243,13 +242,15 @@ def add_third_list_style(data)
         editorInterfaces: []
     }
 
+    # first delete from Contentful
+    delete_field('adviceList', 'listStyle')
+    # now prepare the new json to upload
     to_change = data['contentTypes'].select{|t| t['sys']['id'] == 'adviceList'}
-    to_change.each do |t|
+    to_change.each do |t|    
         fields = t['fields']
-        # THIS DOESN'T WORK - NEED TO OMIT FIRST I THINK
         fields.each_with_index do |field, index|
             if field['id'] == 'listStyle'
-                delete_field('adviceList', 'listStyle')
+                fields.delete_at(index)
                 fields.insert(index, new_field)
                 break
             end

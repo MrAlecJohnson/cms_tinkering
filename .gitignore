@@ -1,3 +1,10 @@
+# ide folders
+/.idea
+/.vscode
+
+# contentful logs
+contentful-import-error-log*.*
+
 types/
 *.command
 
