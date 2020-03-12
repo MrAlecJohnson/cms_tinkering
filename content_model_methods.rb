@@ -2,10 +2,14 @@ require 'json'
 require 'faraday'
 require 'contentful/management'
 
+@PUBLIC_ADVICE = IO.read("/Users/alec/Python/KEYS/contentful_pa.txt").strip()
+@environment = 'content_playground' # content_playground, dev, qa, master
+
 KEY = IO.read("/Users/alec/Python/KEYS/contentful_manage.txt").strip() # management API key
 
-# Run this to use the Contentful management API gem, 
+# Run this to use the Contentful management API gem
 # But I find it so buggy it's more trouble than it's worth
+# Main problem is it can't save change to content types that have rich text fields
 def init_gem_api()
     @client = Contentful::Management::Client.new(KEY)
     @env = @client.environments(@PUBLIC_ADVICE).find(@environment)
@@ -37,11 +41,17 @@ def omit_field(content_type_id, field_id)
     get_url = "https://api.contentful.com/spaces/#{@PUBLIC_ADVICE}/environments/#{@environment}/content_types/#{content_type_id}"
     response = Faraday.get(get_url, {access_token: KEY})
     content = JSON.parse(response.body)
+    version = content['sys']['version'].to_s
     to_omit = content['fields'].select {|t| t['id'] == field_id}[0]
     to_omit['omitted'] = true
     put_url = "https://api.contentful.com/spaces/#{@PUBLIC_ADVICE}/environments/#{@environment}/content_types/#{content_type_id}"
-    save = Faraday.put(put_url, {access_token: KEY, #SOMETHING HERE})
-
+    save = Faraday.put(put_url) do |req|
+        req.params["access_token"] = KEY
+        req.headers["Authorization"] = KEY
+        req.headers['Content-Type'] = "application/vnd.contentful.management.v1+json"
+        req.headers['X-Contentful-Version'] = version
+        req.body = content.to_json
+    end
 end    
 
 def delete_all_types_and_entries()

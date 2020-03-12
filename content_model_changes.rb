@@ -199,7 +199,6 @@ def add_adviser_warning_field(data)
 
 end
 
-
 def add_third_list_style(data)
     # removes the 'list style' boolean on index pages
     # changes it to a 3-option choice of styles 
